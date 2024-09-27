@@ -104,80 +104,84 @@ const clearContext = (messageId: string) => {
 </script>
 
 <template>
-  <div
-    class="chat-message-console"
-    :class="{
-      'chat-message-console-visible':
-        chatSessionStore.getActiveSession?.messages.at(-1)?.id == message.id
-    }"
-  >
-    <template v-if="message.type === 'chat' && message.role === 'assistant' && message.choices">
-      <el-button
-        text
-        circle
-        @click="!appStateStore.chatLoadingFlag && chatSessionStore.changeChoice(message.id!, -1)"
-      >
-        <AppIcon name="arrow-left" :size="18" />
-      </el-button>
-      <div>{{ (message.choiceIndex ?? 0) + 1 }} / {{ message.choices.length }}</div>
-      <el-button
-        text
-        circle
-        @click="!appStateStore.chatLoadingFlag && chatSessionStore.changeChoice(message.id!, 1)"
-      >
-        <AppIcon name="arrow-right" :size="18" />
-      </el-button>
-    </template>
-    <template v-if="message.content && message.content.length > 0">
-      <el-button v-if="speechFlag" text circle @click="speechStop()">
-        <AppIcon name="stop" :size="18" />
-      </el-button>
-      <el-button v-else text circle @click="speechStart()">
-        <AppIcon v-if="speechLoading" class="rotate" name="loading" :width="18" :height="18" />
-        <AppIcon v-else name="speech" :size="18" />
-      </el-button>
-    </template>
-    <el-button text circle @click="clipboardWriteText(message.content)">
-      <AppIcon name="copy" :size="18" />
-    </el-button>
-    <template v-if="!chatSessionStore.getActiveSession!.archived">
-      <template
-        v-if="
-          message.role === 'assistant' &&
-          chatSessionStore.getActiveSession!.messages.at(0)?.id != message.id
-        "
-      >
-        <el-button text circle @click="!appStateStore.chatLoadingFlag && emits('regenerate')">
-          <AppIcon name="refresh" :size="18" />
+  <div class="chat-message-console-container">
+    <div
+      class="chat-message-console"
+      :class="{
+        'chat-message-console-visible':
+          chatSessionStore.getActiveSession?.messages.at(-1)?.id == message.id
+      }"
+      data-share-hide="true"
+    >
+      <template v-if="message.type === 'chat' && message.role === 'assistant' && message.choices">
+        <el-button
+          text
+          circle
+          @click="!appStateStore.chatLoadingFlag && chatSessionStore.changeChoice(message.id!, -1)"
+        >
+          <AppIcon name="arrow-left" :size="18" />
+        </el-button>
+        <div>{{ (message.choiceIndex ?? 0) + 1 }} / {{ message.choices.length }}</div>
+        <el-button
+          text
+          circle
+          @click="!appStateStore.chatLoadingFlag && chatSessionStore.changeChoice(message.id!, 1)"
+        >
+          <AppIcon name="arrow-right" :size="18" />
         </el-button>
       </template>
-      <el-button text circle>
-        <AppIcon name="divider" :size="18" @click="clearContext(message.id!)" />
+      <template v-if="message.content && message.content.length > 0">
+        <el-button v-if="speechFlag" text circle @click="speechStop()">
+          <AppIcon name="stop" :size="18" />
+        </el-button>
+        <el-button v-else text circle @click="speechStart()">
+          <AppIcon v-if="speechLoading" class="rotate" name="loading" :width="18" :height="18" />
+          <AppIcon v-else name="speech" :size="18" />
+        </el-button>
+      </template>
+      <el-button text circle @click="clipboardWriteText(message.content)">
+        <AppIcon name="copy" :size="18" />
       </el-button>
-      <el-button
-        text
-        circle
-        @click="!appStateStore.chatLoadingFlag && chatSessionStore.deleteMessage(message.id!)"
-      >
-        <AppIcon name="delete" :size="18" />
-      </el-button>
-    </template>
+      <template v-if="!chatSessionStore.getActiveSession!.archived">
+        <template
+          v-if="
+            message.role === 'assistant' &&
+            chatSessionStore.getActiveSession!.messages.at(0)?.id != message.id
+          "
+        >
+          <el-button text circle @click="!appStateStore.chatLoadingFlag && emits('regenerate')">
+            <AppIcon name="refresh" :size="18" />
+          </el-button>
+        </template>
+        <el-button text circle>
+          <AppIcon name="divider" :size="18" @click="clearContext(message.id!)" />
+        </el-button>
+        <el-button
+          text
+          circle
+          @click="!appStateStore.chatLoadingFlag && chatSessionStore.deleteMessage(message.id!)"
+        >
+          <AppIcon name="delete" :size="18" />
+        </el-button>
+      </template>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.chat-message-console {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.chat-message-console-container {
+  .chat-message-console {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
-  &-visible {
-    opacity: 1 !important;
-  }
+    &-visible {
+      opacity: 1 !important;
+    }
 
-  button {
-    margin: 0;
+    button {
+      margin: 0;
+    }
   }
 }
 </style>
