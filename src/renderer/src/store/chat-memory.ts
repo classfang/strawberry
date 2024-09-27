@@ -15,15 +15,19 @@ export const useChatMemoryStore = defineStore({
     }
   },
   actions: {
-    setStoreFromJson(jsonStr: string) {
+    setStoreFromJson(jsonStr: string, override = false) {
       let importCount = 0
       if (!jsonStr) {
         return importCount
       }
       const json = JSON.parse(jsonStr)
       if (json.memoryList !== undefined) {
-        this.memoryList = json.memoryList
-        importCount = this.memoryList.length
+        if (override) {
+          this.memoryList = json.memoryList
+        } else {
+          this.memoryList = this.memoryList.concat(json.memoryList)
+        }
+        importCount = json.memoryList.length
       }
       return importCount
     },

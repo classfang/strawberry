@@ -15,15 +15,21 @@ export const useAICalendarStore = defineStore({
     }
   },
   actions: {
-    setStoreFromJson(jsonStr: string) {
+    setStoreFromJson(jsonStr: string, override = false) {
       let importCount = 0
       if (!jsonStr) {
         return importCount
       }
       const json = JSON.parse(jsonStr)
       if (json.dayNotes !== undefined) {
-        this.dayNotes = json.dayNotes
-        importCount = Object.keys(this.dayNotes).length
+        if (override) {
+          this.dayNotes = json.dayNotes
+        } else {
+          Object.keys(json.dayNotes).forEach((key) => {
+            this.dayNotes[key] = json.dayNotes[key]
+          })
+        }
+        importCount = Object.keys(json.dayNotes).length
       }
       return importCount
     },

@@ -26,15 +26,19 @@ export const useChatSessionStore = defineStore({
     }
   },
   actions: {
-    setStoreFromJson(jsonStr: string) {
+    setStoreFromJson(jsonStr: string, override = false) {
       let importCount = 0
       if (!jsonStr) {
         return importCount
       }
       const json = JSON.parse(jsonStr)
       if (json.sessions !== undefined) {
-        this.sessions = json.sessions
-        importCount = this.sessions.length
+        if (override) {
+          this.sessions = json.sessions
+        } else {
+          this.sessions = this.sessions.concat(json.sessions)
+        }
+        importCount = json.sessions.length
       }
       if (json.activeSessionId !== undefined) {
         this.activeSessionId = json.activeSessionId
