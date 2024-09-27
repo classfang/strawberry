@@ -1,0 +1,29 @@
+// 过渡动画
+$app-transition-base: var(--el-transition-duration) cubic-bezier(.55,0,.1,1);
+$app-transition-fast: var(--el-transition-duration-fast) cubic-bezier(.55,0,.1,1);
+
+// 尺寸
+$app-icon-size-base: 22px;
+$app-icon-size-small: 16px;
+$app-icon-size-large: 41px;
+$app-padding-base: 15px;
+$app-padding-small: 10px;
+$app-padding-extra-small: 5px;
+$app-padding-large: 20px;
+$app-border-radius-base: 10px;
+$app-border-radius-small: 5px;
+$app-border-radius-large: 20px;
+$app-line-height-large: 1.7rem;
+$app-line-height-base: 1.5rem;
+$app-line-height-min: 1rem;
+$app-dialog-height: 450px;
+$app-chat-sidebar-width: 260px;
+$app-chat-sidebar-header-height: 40px;
+$app-chat-sidebar-session-height: 40px;
+$app-chat-sidebar-footer-height: 40px;
+$app-chat-body-header-height: 40px;
+$app-chat-input-image-height: 56px;
+$app-chat-input-file-height: 56px;
+$app-chat-message-image-height: 200px;
+$app-chat-message-file-height: 56px;
+$app-title-bar-height: 30px;

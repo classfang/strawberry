@@ -1,0 +1,85 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Inter, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif !important;
+  font-size: var(--el-font-size-base);
+  color: var(--el-text-color-primary);
+}
+
+// 可拖拽
+.drag-area {
+  -webkit-app-region: drag;
+}
+
+// 不可拖拽
+.no-drag-area {
+  -webkit-app-region: no-drag;
+}
+
+* {
+  // 内容不允许选中
+  user-select: none;
+}
+
+img {
+  // 图片不允许拖拽
+  -webkit-user-drag: none;
+}
+
+// 文字可选择
+.select-text {
+  user-select: text;
+
+  * {
+    user-select: text;
+  }
+}
+
+// 单行超出隐藏
+.single-line-ellipsis {
+  white-space: nowrap; /* 禁止换行 */
+  overflow: hidden; /* 超出部分隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+}
+
+// 旋转动画
+.rotate {
+  animation: rotateAnimation 2s linear infinite;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 鼠标悬浮效果
+.hover-float-up {
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: top $app-transition-base;
+
+  &:hover {
+    top: -2px;
+  }
+}
+
+.slide-in-top-enter-active {
+  transition: transform $app-transition-fast;
+}
+
+.slide-in-top-leave-active {
+  transition: transform 0.05s linear;
+}
+
+.slide-in-top-enter-from {
+  transform: translateY(-100%);
+}
+
+.slide-in-top-leave-to {
+  transform: translateY(100%);
+}

@@ -1,0 +1,80 @@
+.markdown-body {
+  white-space: pre-wrap;
+  line-break: anywhere;
+  line-height: $app-line-height-large;
+  display: flex;
+  flex-direction: column;
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ol,
+  ul,
+  li,
+  table {
+    margin-block: 0;
+    margin: calc($app-line-height-large / 4) 0;
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  ol, ul {
+    white-space: normal;
+    list-style-position: inside;
+    padding-left: $app-line-height-large;
+  }
+
+  li {
+    // 防止列表的 marker 和内容之间存在换行
+    white-space: normal;
+
+    // li中p标签改为行内，防止和序号产生换行
+    p:first-child {
+      display: inline;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--el-color-primary);
+
+    &:hover {
+      text-decoration: underline;
+      color: var(--el-color-primary-light-3);
+    }
+  }
+
+  table, th, td {
+    border: 1px solid var(--el-border-color);
+    border-collapse: collapse;
+    padding: $app-padding-extra-small;
+  }
+
+  .chat-message-loading {
+    font-weight: var(--el-font-weight-primary);
+    color: var(--el-color-primary);
+    animation: alternate-hide-show 900ms ease-in-out infinite;
+  }
+
+  @keyframes alternate-hide-show {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    60%,
+    90% {
+      opacity: 0;
+    }
+  }
+}

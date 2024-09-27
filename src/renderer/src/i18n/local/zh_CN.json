@@ -1,0 +1,296 @@
+{
+  "app": {
+    "common": {
+      "confirm": "确认",
+      "cancel": "取消",
+      "search": "搜索",
+      "copy": "复制",
+      "tip": "提示"
+    },
+    "notification": {
+      "newReply": "新回复"
+    },
+    "setting": {
+      "title": "应用设置",
+      "appearance": "外观",
+      "openai": "OpenAI",
+      "chat": "对话",
+      "speech": "发音",
+      "textToImage": "图片生成",
+      "memory": "记忆",
+      "internetSearch": "互联网搜索",
+      "calendar": "日历",
+      "data": "数据",
+      "network": "网络",
+      "about": "关于",
+      "item": {
+        "theme": {
+          "label": "主题",
+          "auto": "自动",
+          "light": "明亮",
+          "dark": "黑暗"
+        },
+        "language": {
+          "label": "语言",
+          "zhCN": "中文",
+          "enUS": "英文"
+        },
+        "openai": {
+          "baseUrl": "服务地址",
+          "apiKey": "API密钥"
+        },
+        "chat": {
+          "model": "模型",
+          "temperature": "随机性",
+          "topP": "核采样",
+          "maxTokens": "单次回复限制",
+          "presencePenalty": "话题新鲜度",
+          "frequencyPenalty": "频率惩罚度",
+          "contextSize": "上下文大小",
+          "autoGenerateSessionName": "自动生成标题",
+          "explain": {
+            "temperature": "值越大，回复越随机",
+            "topP": "与随机性类似，但不要和随机性一起更改",
+            "maxTokens": "单次交互所用的最大 Token 数",
+            "presencePenalty": "值越大，越有可能扩展到新话题",
+            "frequencyPenalty": "值越大，越有可能降低重复字词",
+            "contextSize": "每次请求携带历史消息条数",
+            "autoGenerateSessionName": "根据对话内容生成合适的标题"
+          }
+        },
+        "speech": {
+          "model": "模型",
+          "voice": "发音人",
+          "speed": "语速"
+        },
+        "textToImage": {
+          "enabled": "开启图片生成",
+          "model": "模型",
+          "n": "生成数量",
+          "quality": "图片质量",
+          "size": "图片尺寸",
+          "style": "图片风格",
+          "explain": {
+            "enabled": "大模型会自动判断是否调用"
+          }
+        },
+        "memory": {
+          "enabled": "开启记忆",
+          "guide": "要了解大模型记忆的内容或教授它一些新知识，只需和它聊天即可：\n- “记住，我喜欢简明扼要的回复。”\n- “我刚养了一只狗狗！”\n- “你记忆了什么关于我的内容？”\n- “我上一个项目进展到哪个阶段了？”",
+          "manage": "管理记忆数据",
+          "delete": "删除记忆",
+          "deleteConfirm": "确认删除该记忆数据吗？",
+          "clear": "清空记忆",
+          "clearConfirm": "确认清空记忆数据吗？",
+          "count": "共 _ 条记忆数据",
+          "explain": {
+            "enabled": "大模型会记住一些聊天内容，会增加 Token 消耗"
+          }
+        },
+        "internetSearch": {
+          "enabled": "开启互联网搜索",
+          "google": {
+            "baseUrl": "谷歌搜索服务地址",
+            "key": "谷歌搜索 API 密钥",
+            "cx": "谷歌搜索引擎 ID"
+          },
+          "explain": {
+            "enabled": "大模型会自动判断是否调用，会增加 Token 消耗"
+          }
+        },
+        "calendar": {
+          "queryEnabled": "开启日历查询",
+          "addEnabled": "开启日历添加",
+          "explain": {
+            "enabled": "大模型会自动判断是否调用，会增加 Token 消耗"
+          }
+        },
+        "proxy": {
+          "label": "网络代理"
+        },
+        "data": {
+          "cache": "应用缓存",
+          "openCacheDir": "打开缓存目录",
+          "cleanCache": "清理缓存",
+          "cleanFileCount": "共删除 _ 个文件",
+          "archived": "归档对话",
+          "archivedAll": "归档所有对话",
+          "archivedAllConfirm": "确认归档所有对话吗？",
+          "archivedManage": "归档管理",
+          "archivedCount": "共 _ 个对话",
+          "deleteArchived": "删除存档",
+          "deleteArchivedConfirm": "确定删除改存档吗？",
+          "setting": "设置数据",
+          "exportSetting": "导出设置数据",
+          "importSetting": "导入设置数据",
+          "importSettingSuccess": "导入设置成功",
+          "chat": "对话记录",
+          "clearChat": "清空对话记录",
+          "clearChatConfirm": "确认删除所有对话记录吗？",
+          "exportChat": "导出对话记录",
+          "importChat": "导入对话记录",
+          "importChatCount": "共导入 _ 条对话记录",
+          "memory": "记忆数据",
+          "clearMemory": "清空记忆数据",
+          "clearMemoryConfirm": "确认删除所有记忆数据吗？",
+          "exportMemory": "导出记忆数据",
+          "importMemory": "导入记忆数据",
+          "importMemoryCount": "共导入 _ 条记忆数据",
+          "calendar": "日历数据",
+          "exportCalendar": "导出日历数据",
+          "importCalendar": "导入日历数据",
+          "clearCalendar": "清空日历数据",
+          "clearCalendarConfirm": "确认删除所有日历数据吗？",
+          "importCalendarCount": "共导入 _ 条日历数据"
+        },
+        "about": {
+          "appVersion": "应用版本",
+          "buildTime": "构建时间",
+          "appDownload": "下载新版本",
+          "devTools": "开发者工具",
+          "openDevTools": "打开开发者工具",
+          "openLogDir": "打开日志目录"
+        }
+      }
+    },
+    "chat": {
+      "prompt": {
+        "generateTitle": "使用四到五个字直接返回我们的对话的简要主题，不要解释、不要标点、不要语气词、不要多余文本，不要加粗，如果没有主题，请直接返回“闲聊”"
+      },
+      "sidebar": {
+        "header": {
+          "close": "收起侧栏",
+          "open": "开启侧栏",
+          "newChat": "新对话"
+        },
+        "session": {
+          "empty": "暂无对话",
+          "more": {
+            "editName": "重命名",
+            "archived": "归档",
+            "delete": "删除"
+          },
+          "dateFlag": {
+            "today": "今天",
+            "yesterday": "昨天",
+            "previous7": "前 7 天",
+            "previous30": "前 30 天",
+            "january": "一月",
+            "february": "二月",
+            "march": "三月",
+            "april": "四月",
+            "may": "五月",
+            "june": "六月",
+            "july": "七月",
+            "august": "八月",
+            "september": "九月",
+            "october": "十月",
+            "november": "十一月",
+            "december": "十二月",
+            "earlier": "更早"
+          }
+        }
+      },
+      "body": {
+        "input": {
+          "question": {
+            "placeholder": "给大模型发送消息"
+          },
+          "pleaseConfigure": "请配置 ",
+          "attachment": {
+            "title": "选择附件",
+            "localFile": "本地文件",
+            "webLink": "网页链接"
+          },
+          "link": {
+            "title": "网页链接",
+            "prompt": "请输入有效的 URL 地址",
+            "urlError": "URL 格式错误",
+            "loadError": "网页加载错误"
+          },
+          "unarchived": "取消归档",
+          "send": "发送",
+          "stop": "停止"
+        },
+        "message": {
+          "copied": "已复制",
+          "preview": "预览",
+          "download": "下载",
+          "textToImageContent": "为你生成以下图片：",
+          "memoryResult": "新增了一条记忆：_",
+          "calendarAddResult": "新增了一条备忘：_",
+          "searchResult": "已搜索 _ 个网站",
+          "disconnectedContext": "已断开上下文",
+          "disconnectedContextCancel": "点击恢复上下文"
+        },
+        "header": {
+          "currentChat": {
+            "setting": "当前对话设置"
+          },
+          "internetSearch": {
+            "turnedOn": "已开启互联网搜索",
+            "turnedOff": "已关闭互联网搜索"
+          },
+          "share": {
+            "title": "分享",
+            "cancel": "取消分享"
+          }
+        },
+        "empty": {
+          "content": "你好，有什么可以帮你？"
+        },
+        "prompt": {
+          "title": "快捷指令",
+          "count": "共 _ 条快捷指令"
+        },
+        "screenshot": {
+          "title": "选择屏幕截图",
+          "error": "请开启录屏权限",
+          "guide": "若已授权，请删除授权项后，重新授权"
+        },
+        "statistic": {
+          "title": "用量统计",
+          "promptChars": "输入字符数",
+          "completionChars": "输出字符数",
+          "totalChars": "总字符数",
+          "promptTokens": "输入 Token 数",
+          "completionTokens": "输出 Token 数",
+          "totalTokens": "总 Token 数"
+        },
+        "share": {
+          "selectAll": "全选",
+          "selectAgainst": "反选",
+          "image": {
+            "title": "分享图片",
+            "copy": "复制图片",
+            "save": "保存图片",
+            "cancel": "取消"
+          },
+          "text": {
+            "title": "分享文本",
+            "content": "将为你生成用于分享的文本文档",
+            "confirm": "确认",
+            "cancel": "取消"
+          }
+        }
+      }
+    },
+    "more": {
+      "title": "更多应用"
+    },
+    "calendar": {
+      "title": "日历备忘",
+      "note": {
+        "title": "编辑备忘",
+        "placeholder": "在此输入备忘"
+      },
+      "starredList": {
+        "title": "星标集",
+        "empty": "暂无星标"
+      }
+    },
+    "news": {
+      "title": "新闻资讯"
+    }
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "app": {
+    "common": {
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "search": "Search",
+      "copy": "Copy",
+      "tip": "Tip"
+    },
+    "notification": {
+      "newReply": "New Reply"
+    },
+    "setting": {
+      "title": "Application Settings",
+      "appearance": "Appearance",
+      "openai": "OpenAI",
+      "chat": "Chat",
+      "speech": "Speech",
+      "textToImage": "Text To Image",
+      "memory": "Memory",
+      "internetSearch": "Internet Search",
+      "calendar": "Calendar",
+      "data": "Data",
+      "network": "Network",
+      "about": "About",
+      "item": {
+        "theme": {
+          "label": "Theme",
+          "auto": "Auto",
+          "light": "Light",
+          "dark": "Dark"
+        },
+        "language": {
+          "label": "Language",
+          "zhCN": "zh_CN",
+          "enUS": "en_US"
+        },
+        "openai": {
+          "baseUrl": "Base URL",
+          "apiKey": "API Key"
+        },
+        "chat": {
+          "model": "Model",
+          "temperature": "Temperature",
+          "topP": "Top P",
+          "maxTokens": "Max Tokens",
+          "presencePenalty": "Presence Penalty",
+          "frequencyPenalty": "Frequency Penalty",
+          "contextSize": "Context Size",
+          "autoGenerateSessionName": "Auto Generate Title",
+          "explain": {
+            "temperature": "The larger the value, the more random the response",
+            "topP": "Similar to randomness, but do not change with randomness",
+            "maxTokens": "The maximum number of tokens used in a single interaction",
+            "presencePenalty": "The larger the value, the more likely it is to expand to new topics",
+            "frequencyPenalty": "The larger the value, the more likely it is to reduce duplicates",
+            "contextSize": "Number of historical messages carried per request",
+            "autoGenerateSessionName": "Generate the appropriate title based on the conversation content"
+          }
+        },
+        "speech": {
+          "model": "Model",
+          "voice": "Voice",
+          "speed": "Speed"
+        },
+        "textToImage": {
+          "enabled": "Enable Image Generation",
+          "model": "Model",
+          "n": "Number",
+          "quality": "Quality",
+          "size": "Size",
+          "style": "Style",
+          "explain": {
+            "enabled": "LLM determines whether to invoke it."
+          }
+        },
+        "memory": {
+          "enabled": "Enable Memory",
+          "guide": "To understand what LLM remembers or teach it something new, just chat with it:\n- “Remember that I like concise responses.”\n- “I just got a puppy!”\n- “What do you remember about me?”\n- “Where did we leave off on my last project?”",
+          "manage": "Manage Memory Data",
+          "delete": "Delete Memory Data",
+          "deleteConfirm": "Are you sure to delete the memory data?",
+          "clear": "Clear Memory Data",
+          "clearConfirm": "Are you sure to clear the memory data?",
+          "count": "_ Memories",
+          "explain": {
+            "enabled": "LLM will remember some chat content. Token consumption increases."
+          }
+        },
+        "internetSearch": {
+          "enabled": "Enable Internet Search",
+          "google": {
+            "baseUrl": "Google Search Base Url",
+            "key": "Google Search API Key",
+            "cx": "Google Search Engine ID"
+          },
+          "explain": {
+            "enabled": "LLM determines whether to invoke it. Token consumption increases."
+          }
+        },
+        "calendar": {
+          "queryEnabled": "Enable Calendar Query",
+          "addEnabled": "Enable Calendar Add",
+          "explain": {
+            "enabled": "LLM determines whether to invoke it. Token consumption increases."
+          }
+        },
+        "proxy": {
+          "label": "Network Proxy"
+        },
+        "data": {
+          "cache": "Application Cache",
+          "openCacheDir": "Open Cache Directory",
+          "cleanCache": "Clean Cache",
+          "cleanFileCount": "_ files were deleted",
+          "archived": "Archived Chats",
+          "archivedAll": "Archived All Chats",
+          "archivedAllConfirm": "Are you sure to archived all chats?",
+          "archivedManage": "Archived Manage",
+          "archivedCount": "_ Chats",
+          "deleteArchived": "Delete Archive",
+          "deleteArchivedConfirm": "Are you sure to delete this archive?",
+          "setting": "Setting Data",
+          "exportSetting": "Export Setting Data",
+          "importSetting": "Import Setting Data",
+          "importSettingSuccess": "Import Setting Success",
+          "chat": "Chat Data",
+          "clearChat": "Clear Chat Data",
+          "clearChatConfirm": "Are you sure to delete all chat records?",
+          "exportChat": "Export Chat Records",
+          "importChat": "Import Chat Records",
+          "importChatCount": "_ chat were imported",
+          "memory": "Memory Data",
+          "clearMemory": "Clear Memory Data",
+          "clearMemoryConfirm": "Are you sure to delete all memories?",
+          "exportMemory": "Export Memory Data",
+          "importMemory": "Import Memory Data",
+          "importMemoryCount": "_ memories were imported",
+          "calendar": "Calendar Data",
+          "exportCalendar": "Export Calendar Data",
+          "importCalendar": "Import Calendar Data",
+          "clearCalendar": "Clear Calendar Data",
+          "clearCalendarConfirm": "Are you sure to delete all calendar data?",
+          "importCalendarCount": "_ calendar data were imported"
+        },
+        "about": {
+          "appVersion": "Application Version",
+          "buildTime": "Build Time",
+          "appDownload": "Download Latest Version",
+          "devTools": "Developer Tools",
+          "openDevTools": "Open Developer Tools",
+          "openLogDir": "Open Log Directory"
+        }
+      }
+    },
+    "chat": {
+      "prompt": {
+        "generateTitle": "Please generate a four to five word title summarizing our conversation without any lead-in, punctuation, quotation marks, periods, symbols, bold text, or additional text. Remove enclosing quotation marks."
+      },
+      "sidebar": {
+        "header": {
+          "close": "Close Sidebar",
+          "open": "Open Sidebar",
+          "newChat": "New Chat"
+        },
+        "session": {
+          "empty": "No session",
+          "more": {
+            "editName": "Rename",
+            "archived": "Archived",
+            "delete": "Delete"
+          },
+          "dateFlag": {
+            "today": "Today",
+            "yesterday": "Yesterday",
+            "previous7": "Previous 7 Days",
+            "previous30": "Previous 30 Days",
+            "january": "January",
+            "february": "February",
+            "march": "March",
+            "april": "April",
+            "may": "May",
+            "june": "June",
+            "july": "July",
+            "august": "August",
+            "september": "September",
+            "october": "October",
+            "november": "November",
+            "december": "December",
+            "earlier": "Earlier"
+          }
+        }
+      },
+      "body": {
+        "input": {
+          "question": {
+            "placeholder": "Send a message to LLM"
+          },
+          "pleaseConfigure": "Please configure the ",
+          "attachment": {
+            "title": "Select Attachment",
+            "localFile": "Local File",
+            "webLink": "Web Link"
+          },
+          "link": {
+            "title": "Web Link",
+            "prompt": "Please enter a valid URL",
+            "urlError": "Invalid URL",
+            "loadError": "Web page loading error"
+          },
+          "unarchived": "Unarchived",
+          "send": "Send",
+          "stop": "Stop"
+        },
+        "message": {
+          "copied": "Copied",
+          "preview": "Preview",
+          "download": "Download",
+          "textToImageContent": "Generate the images for you:",
+          "memoryResult": "Added a new memory: _",
+          "calendarAddResult": "Added a new calendar note: _",
+          "searchResult": "Searched _ sites",
+          "disconnectedContext": "Disconnected Context",
+          "disconnectedContextCancel": "Click To Restore Context"
+        },
+        "header": {
+          "currentChat": {
+            "setting": "Current Chat Settings"
+          },
+          "internetSearch": {
+            "turnedOn": "Internet search turned on",
+            "turnedOff": "Internet search turned off"
+          },
+          "share": {
+            "title": "Share",
+            "cancel": "Cancel Share"
+          }
+        },
+        "empty": {
+          "content": "Hello, can I help you?"
+        },
+        "prompt": {
+          "title": "Prompts",
+          "count": "_ Prompts"
+        },
+        "screenshot": {
+          "title": "Select screenshot",
+          "error": "Please enable the screen-recording permission",
+          "guide": "If you are authorized, delete the authorization item and re-authorize it"
+        },
+        "statistic": {
+          "title": "Usage Statistics",
+          "promptChars": "Prompt Chars",
+          "completionChars": "Completion Chars",
+          "totalChars": "Total Chars",
+          "promptTokens": "Prompt Tokens",
+          "completionTokens": "Completion Tokens",
+          "totalTokens": "Total Tokens"
+        },
+        "share": {
+          "selectAll": "Select All ",
+          "selectAgainst": "Select Against",
+          "image": {
+            "title": "Share Image",
+            "copy": "Copy Image",
+            "save": "Save Image",
+            "cancel": "Cancel"
+          },
+          "text": {
+            "title": "Share Text",
+            "content": "An text file will be generated for you to share",
+            "confirm": "Confirm",
+            "cancel": "Cancel"
+          }
+        }
+      }
+    },
+    "more": {
+      "title": "More Apps"
+    },
+    "calendar": {
+      "title": "Calendar Note",
+      "note": {
+        "title": "Edit Note",
+        "placeholder": "Enter note here"
+      },
+      "starredList": {
+        "title": "Starred List",
+        "empty": "No star"
+      }
+    },
+    "news": {
+      "title": "News information"
+    }
+  }
+}

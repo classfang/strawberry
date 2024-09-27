@@ -1,0 +1,46 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/128-gray.png",
+         "16": "icons/16-gray.png",
+         "48": "icons/48-gray.png"
+      },
+      "default_popup": "popups/not-found.html",
+      "default_title": "Vue Devtools"
+   },
+   "background": {
+      "service_worker": "build/service-worker.js"
+   },
+   "content_scripts": [ {
+      "js": [ "build/hook.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "build/detector.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_idle"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+   },
+   "description": "Browser DevTools extension for debugging Vue.js applications.",
+   "devtools_page": "devtools-background.html",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "icons/128.png",
+      "16": "icons/16.png",
+      "48": "icons/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt6EEwxbMwG5+YUPq0GNtjxHpMUgnHDDV2lKueA6qr1Ds0lDISr2ppIUB2COq3xc7Z4P62h1UQQ0KD8OzQELubBd03aRANguAjwgtBDTatovWIsEbjR7NEphphwVQkac7fo9Y6pQdTgl+5g8Kqj7h2KMbzd8gSsrP0KUlldOr6WC9bSNgtXI1aT1Y9LOsOhbldPhXNsdhuTveB5rdWya/7lcNTA69hbYv9VCxHjV+IO8ErFx8x9B0fACpYMLL7AE4dImHMYQgsJITM9cyOneDmFJvkhwQcJMstub3PeXqzM2Ixo8M7SBO01MogBdkGc2jmJBQerpPyvEjUiF3uNuNNQIDAQAB",
+   "manifest_version": 3,
+   "name": "Vue.js devtools",
+   "permissions": [ "storage", "scripting" ],
+   "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+   "version": "6.6.3",
+   "version_name": "6.6.3",
+   "web_accessible_resources": [ {
+      "extension_ids": [  ],
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "devtools.html", "devtools-background.html", "build/backend.js", "build/proxy.js", "build/hook-exec.js", "build/detector-exec.js" ]
+   } ]
+}
