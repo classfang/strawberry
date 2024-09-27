@@ -39,27 +39,43 @@
 
 如果你是一名开发者，想要帮助解决其中的任何一个问题，请打开一个 issue 来讨论解决。
 
-## 3. 开发
+## 3. 最新安装包
 
-### 3.1 克隆仓库
+你可以在 [releases](https://github.com/classfang/strawberry/releases) 中找到个平台的安装包。
+
+如果遇到任何安装和使用问题，欢迎提交 issue。
+
+### 3.1. App 在 macOS 下提示已损坏无法打开解决办法
+
+打开终端，输入以下命令，并执行：
+
+```shell
+sudo xattr -d com.apple.quarantine /Applications/xxxx.app
+```
+
+注意：/Applications/xxxx.app 换成你的App路径。
+
+## 4. 开发
+
+### 4.1 克隆仓库
 
 ```shell
 git clone https://github.com/classfang/chatgpt-plus.git
 ```
 
-### 3.2 安装依赖
+### 4.2 安装依赖
 
 ```shell
 yarn install
 ```
 
-### 3.3 运行
+### 4.3 运行
 
 ```shell
 yarn dev
 ```
 
-### 3.4 构建
+### 4.4 构建
 
 ```shell
 yarn build:mac
