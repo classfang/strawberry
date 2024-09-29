@@ -104,15 +104,14 @@ const clearContext = (messageId: string) => {
 </script>
 
 <template>
-  <div class="chat-message-console-container">
-    <div
-      class="chat-message-console"
-      :class="{
-        'chat-message-console-visible':
-          chatSessionStore.getActiveSession?.messages.at(-1)?.id == message.id
-      }"
-      data-share-hide="true"
-    >
+  <div
+    class="chat-message-console-container"
+    :class="{
+      'chat-message-console-container-visible':
+        chatSessionStore.getActiveSession?.messages.at(-1)?.id == message.id
+    }"
+  >
+    <div class="chat-message-console" data-share-hide="true">
       <template v-if="message.type === 'chat' && message.role === 'assistant' && message.choices">
         <el-button
           text
@@ -170,14 +169,14 @@ const clearContext = (messageId: string) => {
 
 <style lang="scss" scoped>
 .chat-message-console-container {
+  &-visible {
+    opacity: 1 !important;
+  }
+
   .chat-message-console {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
-    &-visible {
-      opacity: 1 !important;
-    }
 
     button {
       margin: 0;
