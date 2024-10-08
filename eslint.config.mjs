@@ -24,7 +24,9 @@ export default [
       'vue/no-v-html': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/ban-ts-comment': 'off'
-    },
-    ignores: ['node_modules/*', 'dist/*', 'out/*', 'plugins/*', '.gitignore']
+    }
+  },
+  {
+    ignores: ['node_modules/', 'dist/', 'out/', 'plugins/', '.gitignore']
   }
 ]
