@@ -68,7 +68,7 @@ export const openaiChat = async (param: OpenAIChatParam) => {
   }
 
   if (param.end) {
-    param.answer(end)
+    param.end()
   }
 
   return null
