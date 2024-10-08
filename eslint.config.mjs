@@ -3,7 +3,6 @@ import vueTsEslintConfig from '@vue/eslint-config-typescript'
 import pluginVue from 'eslint-plugin-vue'
 
 export default [
-  prettierConfig,
   ...pluginVue.configs['flat/recommended'],
   ...vueTsEslintConfig(),
   {
@@ -27,6 +26,7 @@ export default [
     }
   },
   {
-    ignores: ['node_modules/', 'dist/', 'out/', 'plugins/', '.gitignore']
-  }
+    ignores: ['node_modules/', 'dist/', 'out/', 'plugins/', 'scripts/', '.gitignore']
+  },
+  prettierConfig
 ]

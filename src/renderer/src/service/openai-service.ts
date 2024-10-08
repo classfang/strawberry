@@ -49,7 +49,9 @@ export const openaiChat = async (param: OpenAIChatParam) => {
           return null
         }
         Logger.info('openai chat response chunk: ', chunk)
-        param.answer && param.answer(chunk)
+        if (param.answer) {
+          param.answer(chunk)
+        }
       }
     } else {
       const completion = await openai.chat.completions.create(param.params)
@@ -60,10 +62,14 @@ export const openaiChat = async (param: OpenAIChatParam) => {
     }
   } catch (e: any) {
     Logger.error('openai chat error: ', e.message)
-    param.error && param.error(e)
+    if (param.error) {
+      param.error(e)
+    }
   }
 
-  param.end && param.end()
+  if (param.end) {
+    param.answer(end)
+  }
 
   return null
 }
