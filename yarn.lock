@@ -684,10 +684,10 @@
     zod "^3.22.3"
     zod-to-json-schema "^3.22.5"
 
-"@langchain/core@^0.3.7":
-  version "0.3.7"
-  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.7.tgz#7483676a193dad13238c5c57545ce79dde2547fb"
-  integrity sha512-6wsnEtw5GlhmBhoLfw/g8Hrp09BNwQwDLXyuv3GyK+ay4/3H3YuhAphqQLO4HNphuZIZKlW9ihSrqdCMvvbvZQ==
+"@langchain/core@^0.3.8":
+  version "0.3.8"
+  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.8.tgz#b988cc2b2d8c8e5719e8ebc24c283634cf921c52"
+  integrity sha512-4IaJr1canfQZUJ60yopdI0zANiyaeFMMxn6X29Wxxs2Tws1bSQn5gxNMK51L6QVAVZBFcNCGp/xx88EBOOOm9Q==
   dependencies:
     ansi-styles "^5.0.0"
     camelcase "6"
@@ -4618,10 +4618,10 @@ openai@^4.57.3:
     node-fetch "^2.6.7"
     qs "^6.10.3"
 
-openai@^4.67.2:
-  version "4.67.2"
-  resolved "https://registry.npmmirror.com/openai/-/openai-4.67.2.tgz#91f894fede549df26ad4ae3a228bd6d301d16756"
-  integrity sha512-u4FJFGXgqEHrCYcD5jAD4nHj6JCiicH+/dskQY7qka9R6hOw29R0kOz7GwcA9k2JKcLf86lzAWPtPagPbO8KnQ==
+openai@^4.67.3:
+  version "4.67.3"
+  resolved "https://registry.npmmirror.com/openai/-/openai-4.67.3.tgz#a7c1b59cb9eca064f3ff3d439b7bf51487d88a49"
+  integrity sha512-HT2tZgjLgRqbLQNKmYtjdF/4TQuiBvg1oGvTDhwpSEQzxo6/oM1us8VQ53vBK2BiKvCxFuq6gKGG70qfwrNhKg==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
@@ -5696,10 +5696,15 @@ typescript-eslint@^8.6.0:
     "@typescript-eslint/parser" "8.8.1"
     "@typescript-eslint/utils" "8.8.1"
 
-typescript@^5.4.3, typescript@^5.6.2:
+typescript@^5.4.3:
   version "5.6.2"
   resolved "https://registry.npmmirror.com/typescript/-/typescript-5.6.2.tgz#d1de67b6bef77c41823f822df8f0b3bcff60a5a0"
   integrity sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==
+
+typescript@^5.6.3:
+  version "5.6.3"
+  resolved "https://registry.npmmirror.com/typescript/-/typescript-5.6.3.tgz#5f3449e31c9d94febb17de03cc081dd56d81db5b"
+  integrity sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==
 
 uc.micro@^2.0.0, uc.micro@^2.1.0:
   version "2.1.0"
