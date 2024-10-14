@@ -85,7 +85,7 @@ defineExpose({
 
     <el-dialog
       v-model="noteDialogVisible"
-      :title="$t('app.calendar.note.title')"
+      :title="$t('app.calendar.note.title') + ` ${dayjs(current).format('YYYY/MM/DD')}`"
       width="700"
       align-center
       destroy-on-close

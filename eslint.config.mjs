@@ -5,6 +5,7 @@ import pluginVue from 'eslint-plugin-vue'
 export default [
   ...pluginVue.configs['flat/recommended'],
   ...vueTsEslintConfig(),
+  prettierConfig,
   {
     files: [
       '**/*.js',
@@ -27,6 +28,5 @@ export default [
   },
   {
     ignores: ['node_modules/', 'dist/', 'out/', 'plugins/', 'scripts/', '.gitignore']
-  },
-  prettierConfig
+  }
 ]
