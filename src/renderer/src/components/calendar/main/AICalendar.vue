@@ -66,7 +66,7 @@ defineExpose({
           <div class="ai-calendar-day-title">
             <div>{{ dayjs(t.data.date).date() }}</div>
             <template v-if="aiCalendarStore.dayNotes[t.data.day]">
-              <transition-group name="el-zoom-in-center" mode="out-in">
+              <transition-group name="el-zoom-in-center">
                 <StarFilled
                   v-if="aiCalendarStore.dayNotes[t.data.day]?.starred"
                   class="ai-calendar-day-starred"

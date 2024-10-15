@@ -137,67 +137,62 @@ onMounted(() => {
     <!-- 消息列表 -->
     <el-scrollbar ref="messageListScrollbarRef" height="100%" @scroll="onMessageListScroll">
       <div id="message-list-container" class="message-list-container">
-        <transition-group name="el-fade-in">
-          <div
-            v-for="m in chatSessionStore.getActiveSession!.messages"
-            :key="m.id"
-            class="message-container"
-          >
-            <!-- 消息选择 -->
-            <template v-if="props.messageCheckboxVisible">
-              <el-checkbox
-                v-if="messageCheckIds.includes(m.id!)"
-                :checked="true"
-                size="large"
-                data-share-hide="true"
-                @click="onMessageCheckboxClick(m.id!, false)"
-              />
-              <el-checkbox
-                v-else
-                size="large"
-                data-share-hide="true"
-                @click="onMessageCheckboxClick(m.id!, true)"
+        <div
+          v-for="m in chatSessionStore.getActiveSession!.messages"
+          :key="m.id"
+          class="message-container"
+        >
+          <!-- 消息选择 -->
+          <template v-if="props.messageCheckboxVisible">
+            <el-checkbox
+              v-if="messageCheckIds.includes(m.id!)"
+              :checked="true"
+              size="large"
+              data-share-hide="true"
+              @click="onMessageCheckboxClick(m.id!, false)"
+            />
+            <el-checkbox
+              v-else
+              size="large"
+              data-share-hide="true"
+              @click="onMessageCheckboxClick(m.id!, true)"
+            />
+          </template>
+
+          <!-- 对话消息 -->
+          <template v-if="m.type === 'chat'">
+            <template v-if="m.role === 'user'">
+              <ChatMessageUser
+                :message="m"
+                :data-share-hide="!messageCheckIds.includes(m.id!)"
+                @clear-context="scrollToBottom(false)"
               />
             </template>
-
-            <!-- 对话消息 -->
-            <template v-if="m.type === 'chat'">
-              <template v-if="m.role === 'user'">
-                <ChatMessageUser
-                  :message="m"
-                  :data-share-hide="!messageCheckIds.includes(m.id!)"
-                  @clear-context="scrollToBottom(false)"
-                />
-              </template>
-              <template v-else-if="m.role === 'assistant'">
-                <ChatMessageAssistant
-                  :message="m"
-                  :data-share-hide="!messageCheckIds.includes(m.id!)"
-                  @regenerate="emits('regenerate', m.id)"
-                  @clear-context="scrollToBottom(false)"
-                />
-              </template>
-            </template>
-
-            <!-- 错误消息 -->
-            <template v-else-if="m.type === 'error'">
-              <ChatMessageError
+            <template v-else-if="m.role === 'assistant'">
+              <ChatMessageAssistant
                 :message="m"
                 :data-share-hide="!messageCheckIds.includes(m.id!)"
                 @regenerate="emits('regenerate', m.id)"
                 @clear-context="scrollToBottom(false)"
               />
             </template>
+          </template>
 
-            <!-- 分隔消息 -->
-            <template v-else-if="m.type === 'divider'">
-              <ChatMessageDivider
-                :message="m"
-                :data-share-hide="!messageCheckIds.includes(m.id!)"
-              />
-            </template>
-          </div>
-        </transition-group>
+          <!-- 错误消息 -->
+          <template v-else-if="m.type === 'error'">
+            <ChatMessageError
+              :message="m"
+              :data-share-hide="!messageCheckIds.includes(m.id!)"
+              @regenerate="emits('regenerate', m.id)"
+              @clear-context="scrollToBottom(false)"
+            />
+          </template>
+
+          <!-- 分隔消息 -->
+          <template v-else-if="m.type === 'divider'">
+            <ChatMessageDivider :message="m" :data-share-hide="!messageCheckIds.includes(m.id!)" />
+          </template>
+        </div>
       </div>
     </el-scrollbar>
 
