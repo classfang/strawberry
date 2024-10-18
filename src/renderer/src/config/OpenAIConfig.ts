@@ -10,12 +10,7 @@ export const OpenAIModels = [
       {
         value: 'chatgpt-4o-latest',
         label: 'chatgpt-4o-latest'
-      }
-    ]
-  },
-  {
-    label: 'GPT-4o mini',
-    options: [
+      },
       {
         value: 'gpt-4o-mini',
         label: 'gpt-4o-mini'
@@ -36,7 +31,7 @@ export const OpenAIModels = [
     ]
   },
   {
-    label: 'GPT-4 Turbo and GPT-4',
+    label: 'GPT-4',
     options: [
       {
         value: 'gpt-4-turbo',
@@ -53,7 +48,7 @@ export const OpenAIModels = [
     ]
   },
   {
-    label: 'GPT-3.5 Turbo',
+    label: 'GPT-3.5',
     options: [
       {
         value: 'gpt-3.5-turbo',
