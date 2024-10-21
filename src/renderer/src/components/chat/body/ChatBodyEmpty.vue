@@ -8,8 +8,10 @@ const emits = defineEmits(['use-prompt'])
 
 <template>
   <div class="chat-body-empty">
-    <AppIcon name="logo" class="app-logo" />
-    <div>{{ $t('app.chat.body.empty.content') }}</div>
+    <div class="empty-container">
+      <AppIcon name="logo" class="app-logo" />
+      <div class="empty-content">{{ $t('app.chat.body.empty.content') }}</div>
+    </div>
     <ChatBodyPrompt @use-prompt="(prompt) => emits('use-prompt', prompt)" />
   </div>
 </template>
@@ -24,11 +26,20 @@ const emits = defineEmits(['use-prompt'])
   align-items: center;
   justify-content: center;
   gap: $app-padding-large;
-  font-size: var(--el-font-size-large);
 
-  .app-logo {
-    height: $app-icon-size-large;
-    width: $app-icon-size-large;
+  .empty-container {
+    display: flex;
+    gap: $app-padding-large;
+    align-items: center;
+
+    .app-logo {
+      height: $app-icon-size-large;
+      width: $app-icon-size-large;
+    }
+
+    .empty-content {
+      font-size: var(--el-font-size-extra-large);
+    }
   }
 }
 </style>
