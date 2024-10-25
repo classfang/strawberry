@@ -31,7 +31,7 @@ export const useAppStateStore = defineStore({
     archivedDataDialogVisible: false
   }),
   actions: {
-    startDayKeyInterval() {
+    startStateKeyInterval() {
       // 刷新 dayKey，用于更具日期自动刷新组件
       setInterval(() => {
         this.dayKey = dayjs().format('YYYYMMDD')

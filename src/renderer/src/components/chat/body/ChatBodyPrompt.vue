@@ -19,7 +19,7 @@ const data = reactive({
 const { dialogVisible, promptKeyword } = toRefs(data)
 
 // 计算属性
-const randomPrompts = computed(() => getRandomElements(prompts[appSettingStore.app.locale], 4))
+const randomPrompts = computed(() => getRandomElements(prompts[appSettingStore.app.locale], 10))
 </script>
 
 <template>
