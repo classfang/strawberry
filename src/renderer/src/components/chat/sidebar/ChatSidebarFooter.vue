@@ -5,8 +5,10 @@ import AppSetting from '@renderer/components/setting/AppSetting.vue'
 
 <template>
   <div class="chat-sidebar-footer-container">
-    <AppSetting />
-    <MoreButton />
+    <div class="chat-sidebar-footer">
+      <AppSetting />
+      <MoreButton />
+    </div>
   </div>
 </template>
 
@@ -14,10 +16,16 @@ import AppSetting from '@renderer/components/setting/AppSetting.vue'
 .chat-sidebar-footer-container {
   height: $app-chat-sidebar-footer-height;
   width: 100%;
-  box-sizing: border-box;
-  padding: 0 $app-padding-base;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  overflow: hidden;
+
+  .chat-sidebar-footer {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 $app-padding-base;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 </style>
