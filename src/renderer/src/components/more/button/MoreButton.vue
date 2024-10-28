@@ -4,7 +4,13 @@ import MorePage from '@renderer/components/more/main/MorePage.vue'
 </script>
 
 <template>
-  <el-popover placement="top-start" width="auto" trigger="hover">
+  <el-popover
+    placement="right-end"
+    width="auto"
+    trigger="click"
+    popper-class="more-button-popover"
+    :hide-after="0"
+  >
     <template #reference>
       <AppIcon name="more" class="more-icon" />
     </template>
