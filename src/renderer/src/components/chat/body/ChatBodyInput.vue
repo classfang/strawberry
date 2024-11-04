@@ -216,7 +216,7 @@ const sendQuestion = async (event?: KeyboardEvent, regenerateFlag?: boolean) => 
       }
 
       // 用量统计
-      usageStatistic(chunk.usage)
+      usageStatistic(chunk.usage!)
 
       emits('update-message')
     },
@@ -374,7 +374,7 @@ const functionCall = async (params: {
       streamAnswer(chunk.choices[0]?.delta.content ?? '')
 
       // 用量统计
-      usageStatistic(chunk.usage)
+      usageStatistic(chunk.usage!)
 
       emits('update-message')
     },
@@ -591,7 +591,7 @@ const generateSessionName = async (sessionId: string) => {
       }
 
       // 用量统计
-      usageStatistic(chunk.usage)
+      usageStatistic(chunk.usage!)
     }
   })
 }
