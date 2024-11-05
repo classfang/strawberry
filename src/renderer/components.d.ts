@@ -73,8 +73,6 @@ declare module 'vue' {
     MemoryDataSetting: typeof import('./src/components/setting/MemoryDataSetting.vue')['default']
     MoreButton: typeof import('./src/components/more/button/MoreButton.vue')['default']
     MorePage: typeof import('./src/components/more/main/MorePage.vue')['default']
-    NewsButton: typeof import('./src/components/news/button/NewsButton.vue')['default']
-    NewsPage: typeof import('./src/components/news/main/NewsPage.vue')['default']
     NoteEditor: typeof import('./src/components/calendar/editor/NoteEditor.vue')['default']
     TitleBar: typeof import('./src/components/title/TitleBar.vue')['default']
   }

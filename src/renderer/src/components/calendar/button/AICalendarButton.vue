@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Calendar, Star } from '@element-plus/icons-vue'
+import { Star } from '@element-plus/icons-vue'
 import AICalendar from '@renderer/components/calendar/main/AICalendar.vue'
+import AppIcon from '@renderer/components/icon/AppIcon.vue'
 import { useStore } from '@renderer/store/store'
 import { computed, reactive, ref, toRefs } from 'vue'
 
@@ -30,9 +31,9 @@ const starCount = computed(() => {
 
 <template>
   <div>
-    <el-button :icon="Calendar" plain size="small" @click="drawerVisible = true">
-      {{ $t('app.calendar.title') }}
-    </el-button>
+    <el-tooltip :content="$t('app.calendar.title')">
+      <AppIcon name="more" class="ai-calendar-button-icon" @click="drawerVisible = true" />
+    </el-tooltip>
     <el-drawer
       v-model="drawerVisible"
       size="90%"
@@ -80,6 +81,20 @@ const starCount = computed(() => {
 </template>
 
 <style lang="scss">
+.ai-calendar-button-icon {
+  height: $app-icon-size-base;
+  width: $app-icon-size-base;
+  flex-shrink: 0;
+  color: var(--el-text-color-regular);
+  transition: color $app-transition-base;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    color: var(--el-text-color-primary);
+  }
+}
+
 .ai-calendar-drawer {
   border-radius: $app-border-radius-base $app-border-radius-base 0 0;
 

@@ -1,0 +1,9 @@
+@use 'scss-vars.scss' as *;
+
+.more-page-drawer {
+  border-radius: $app-border-radius-base $app-border-radius-base 0 0;
+
+  .el-drawer__header {
+    margin-bottom: 0;
+  }
+}

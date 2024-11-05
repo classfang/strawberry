@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MoreButton from '@renderer/components/more/button/MoreButton.vue'
+import AICalendarButton from '@renderer/components/calendar/button/AICalendarButton.vue'
 import AppSetting from '@renderer/components/setting/AppSetting.vue'
 </script>
 
@@ -7,7 +7,7 @@ import AppSetting from '@renderer/components/setting/AppSetting.vue'
   <div class="chat-sidebar-footer-container">
     <div class="chat-sidebar-footer">
       <AppSetting />
-      <MoreButton />
+      <AICalendarButton />
     </div>
   </div>
 </template>
