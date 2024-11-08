@@ -237,7 +237,7 @@
           }
         },
         "empty": {
-          "content": "Hello, can I help you?"
+          "content": "Hello, how can I help you?"
         },
         "prompt": {
           "title": "Prompts",
