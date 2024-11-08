@@ -129,6 +129,7 @@ const randomPrompts = computed(() => getRandomElements(prompts[appSettingStore.a
 
     .fast-prompt-item-title {
       color: var(--el-text-color-primary);
+      font-weight: var(--el-font-weight-primary);
     }
 
     .fast-prompt-item-content {
