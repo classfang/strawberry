@@ -241,7 +241,11 @@
         },
         "prompt": {
           "title": "Prompts",
-          "count": "_ Prompts"
+          "count": "_ Prompts",
+          "more": {
+            "title": "More",
+            "content": "Click to show more prompts"
+          }
         },
         "screenshot": {
           "title": "Select screenshot",

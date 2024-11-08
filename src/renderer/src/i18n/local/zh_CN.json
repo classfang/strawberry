@@ -241,7 +241,11 @@
         },
         "prompt": {
           "title": "快捷指令",
-          "count": "共 _ 条快捷指令"
+          "count": "共 _ 条快捷指令",
+          "more": {
+            "title": "更多",
+            "content": "点击展示更多快捷指令"
+          }
         },
         "screenshot": {
           "title": "选择屏幕截图",

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MoreFilled, Search } from '@element-plus/icons-vue'
+import { Search } from '@element-plus/icons-vue'
 import prompts from '@renderer/assets/json/prompts.json'
 import { useStore } from '@renderer/store/store'
 import { getRandomElements } from '@renderer/utils/array-util'
@@ -19,7 +19,7 @@ const data = reactive({
 const { dialogVisible, promptKeyword } = toRefs(data)
 
 // 计算属性
-const randomPrompts = computed(() => getRandomElements(prompts[appSettingStore.app.locale], 10))
+const randomPrompts = computed(() => getRandomElements(prompts[appSettingStore.app.locale], 5))
 </script>
 
 <template>
@@ -30,12 +30,16 @@ const randomPrompts = computed(() => getRandomElements(prompts[appSettingStore.a
       class="fast-prompt-item"
       @click="emits('use-prompt', p[1])"
     >
-      {{ p[0] }}
+      <div class="fast-prompt-item-title">{{ p[0] }}</div>
+      <el-text class="fast-prompt-item-content" line-clamp="1">
+        {{ p[1] }}
+      </el-text>
     </div>
     <div class="fast-prompt-item" @click="dialogVisible = true">
-      <el-icon>
-        <MoreFilled />
-      </el-icon>
+      <div class="fast-prompt-item-title">{{ $t('app.chat.body.prompt.more.title') }}</div>
+      <el-text class="fast-prompt-item-content" line-clamp="1">
+        {{ $t('app.chat.body.prompt.more.content') }}
+      </el-text>
     </div>
 
     <el-dialog
@@ -103,35 +107,33 @@ const randomPrompts = computed(() => getRandomElements(prompts[appSettingStore.a
 .chat-body-prompt {
   width: 100%;
   box-sizing: border-box;
-  padding: 0 $app-padding-base;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  padding: 0 $app-padding-large;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: $app-padding-base;
-  font-size: var(--el-font-size-base);
 
   .fast-prompt-item {
-    height: 30px;
     box-sizing: border-box;
-    padding: 0 $app-padding-small;
+    padding: $app-padding-small;
     border-radius: $app-border-radius-base;
-    background-color: var(--el-fill-color-light);
-    color: var(--el-text-color-regular);
+    border: 1px solid var(--el-fill-color-darker);
     cursor: pointer;
-    transition: all $app-transition-base;
+    transition: all $app-transition-fast;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: $app-padding-small;
 
     &:hover {
-      background-color: var(--el-fill-color);
+      border: 1px solid var(--el-color-primary);
+    }
+
+    .fast-prompt-item-title {
       color: var(--el-text-color-primary);
     }
 
-    &:active {
-      background-color: var(--el-fill-color-dark);
-      color: var(--el-text-color-primary);
+    .fast-prompt-item-content {
+      color: var(--el-text-color-secondary);
+      align-self: flex-start;
     }
   }
 

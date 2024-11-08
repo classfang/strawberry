@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ChatBodyPrompt from '@renderer/components/chat/body/ChatBodyPrompt.vue'
-import AppIcon from '@renderer/components/icon/AppIcon.vue'
 
 // 事件
 const emits = defineEmits(['use-prompt'])
@@ -9,7 +8,6 @@ const emits = defineEmits(['use-prompt'])
 <template>
   <div class="chat-body-empty">
     <div class="empty-container">
-      <AppIcon name="logo" class="app-logo" />
       <div class="empty-content">{{ $t('app.chat.body.empty.content') }}</div>
     </div>
     <ChatBodyPrompt @use-prompt="(prompt) => emits('use-prompt', prompt)" />
@@ -28,17 +26,13 @@ const emits = defineEmits(['use-prompt'])
   gap: $app-padding-large;
 
   .empty-container {
-    display: flex;
-    gap: $app-padding-large;
-    align-items: center;
-
-    .app-logo {
-      height: $app-icon-size-large;
-      width: $app-icon-size-large;
-    }
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 $app-padding-large;
 
     .empty-content {
-      font-size: var(--el-font-size-extra-large);
+      font-size: $app-font-size-extra-large;
+      font-weight: var(--el-font-weight-primary);
     }
   }
 }
