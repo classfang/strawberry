@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChatRound, Search } from '@element-plus/icons-vue'
+import { ChatLineRound, Search } from '@element-plus/icons-vue'
 import AppIcon from '@renderer/components/icon/AppIcon.vue'
 import i18n from '@renderer/i18n'
 import { useStore } from '@renderer/store/store'
@@ -47,7 +47,7 @@ const deleteArchived = (id: string) => {
 </script>
 
 <template>
-  <el-button :icon="ChatRound" @click="appStateStore.archivedDataDialogVisible = true">
+  <el-button :icon="ChatLineRound" @click="appStateStore.archivedDataDialogVisible = true">
     {{ $t('app.setting.item.data.archivedManage') }}
   </el-button>
 

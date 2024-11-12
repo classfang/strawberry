@@ -1,14 +1,24 @@
 <script setup lang="ts">
 import {
   Brush,
+  ChatLineSquare,
+  CreditCard,
   Download,
   Folder,
   MessageBox,
+  Microphone,
   Monitor,
   Moon,
   Sunny,
   Tools,
-  Upload
+  Upload,
+  Picture,
+  ChatDotSquare,
+  Link,
+  Compass,
+  Calendar,
+  CoffeeCup,
+  Coin
 } from '@element-plus/icons-vue'
 import buildInfo from '@renderer/assets/json/build-info.json'
 import AppIcon from '@renderer/components/icon/AppIcon.vue'
@@ -343,7 +353,13 @@ onMounted(() => {
       <div class="dialog-body">
         <el-tabs tab-position="left">
           <!-- 外观 -->
-          <el-tab-pane :label="$t('app.setting.appearance')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><Brush /></el-icon>
+                <span>{{ $t('app.setting.appearance') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- 主题 -->
               <el-form-item :label="$t('app.setting.item.theme.label')">
@@ -380,7 +396,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- OpenAI -->
-          <el-tab-pane :label="$t('app.setting.openai')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><CreditCard /></el-icon>
+                <span>{{ $t('app.setting.openai') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- Guide URL -->
               <el-form-item :label="$t('app.setting.item.openai.guide.label')">
@@ -406,7 +428,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- 对话 -->
-          <el-tab-pane :label="$t('app.setting.chat')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><ChatLineSquare /></el-icon>
+                <span>{{ $t('app.setting.chat') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- Model -->
               <el-form-item :label="$t('app.setting.item.chat.model')">
@@ -530,7 +558,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- 发音 -->
-          <el-tab-pane :label="$t('app.setting.speech')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><Microphone /></el-icon>
+                <span>{{ $t('app.setting.speech') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- Model -->
               <el-form-item :label="$t('app.setting.item.speech.model')">
@@ -583,7 +617,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- 文生图 -->
-          <el-tab-pane :label="$t('app.setting.textToImage')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><Picture /></el-icon>
+                <span>{{ $t('app.setting.textToImage') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- Enabled -->
               <el-form-item :label="$t('app.setting.item.textToImage.enabled')">
@@ -657,7 +697,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- 记忆 -->
-          <el-tab-pane :label="$t('app.setting.memory')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><ChatDotSquare /></el-icon>
+                <span>{{ $t('app.setting.memory') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- Enabled -->
               <el-form-item :label="$t('app.setting.item.memory.enabled')">
@@ -680,7 +726,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- 互联网搜索 -->
-          <el-tab-pane :label="$t('app.setting.internetSearch')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><Compass /></el-icon>
+                <span>{{ $t('app.setting.internetSearch') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- Enabled -->
               <el-form-item :label="$t('app.setting.item.internetSearch.enabled')">
@@ -729,7 +781,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- 日历 -->
-          <el-tab-pane :label="$t('app.setting.calendar')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><Calendar /></el-icon>
+                <span>{{ $t('app.setting.calendar') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- Enabled -->
               <el-form-item :label="$t('app.setting.item.calendar.queryEnabled')">
@@ -752,7 +810,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- 网络 -->
-          <el-tab-pane :label="$t('app.setting.network')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><Link /></el-icon>
+                <span>{{ $t('app.setting.network') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- 网络代理 -->
               <el-form-item :label="$t('app.setting.item.proxy.label')">
@@ -765,7 +829,13 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- 数据 -->
-          <el-tab-pane :label="$t('app.setting.data')">
+          <el-tab-pane>
+            <template #label>
+              <div class="setting-item-label">
+                <el-icon><Coin /></el-icon>
+                <span>{{ $t('app.setting.data') }}</span>
+              </div>
+            </template>
             <el-form label-width="auto" label-position="left">
               <!-- 缓存目录 -->
               <el-form-item :label="$t('app.setting.item.data.cache')">
@@ -887,9 +957,12 @@ onMounted(() => {
           <!-- 关于 -->
           <el-tab-pane>
             <template #label>
-              <el-badge is-dot :hidden="!badge.appVersion">
-                {{ $t('app.setting.about') }}
-              </el-badge>
+              <div class="setting-item-label">
+                <el-icon><CoffeeCup /></el-icon>
+                <el-badge is-dot :hidden="!badge.appVersion">
+                  <span>{{ $t('app.setting.about') }}</span>
+                </el-badge>
+              </div>
             </template>
             <el-form label-width="auto" label-position="left">
               <!-- 应用版本 -->
@@ -965,6 +1038,14 @@ onMounted(() => {
     :deep(.el-tabs__content) {
       box-sizing: border-box;
       padding: $app-padding-extra-small $app-padding-small;
+    }
+
+    .setting-item-label {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: $app-padding-small;
     }
 
     .setting-item-icon {
