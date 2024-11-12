@@ -14,14 +14,14 @@
       "title": "应用设置",
       "appearance": "外观",
       "openai": "OpenAI",
-      "chat": "对话",
-      "speech": "发音",
-      "textToImage": "图片生成",
-      "memory": "记忆",
-      "internetSearch": "互联网搜索",
-      "calendar": "日历",
-      "data": "数据",
-      "network": "网络",
+      "chat": "对话模型",
+      "speech": "发音模型",
+      "textToImage": "生图插件",
+      "memory": "记忆插件",
+      "internetSearch": "联网插件",
+      "calendar": "日历插件",
+      "data": "数据管理",
+      "network": "网络代理",
       "about": "关于",
       "item": {
         "theme": {
@@ -36,6 +36,10 @@
           "enUS": "英文"
         },
         "openai": {
+          "guide": {
+            "label": "使用指南",
+            "url": "https://platform.openai.com/docs/overview"
+          },
           "baseUrl": "服务地址",
           "apiKey": "API密钥"
         },
@@ -90,6 +94,10 @@
         "internetSearch": {
           "enabled": "开启互联网搜索",
           "google": {
+            "guide": {
+              "label": "使用指南",
+              "url": "https://developers.google.cn/custom-search/v1/overview"
+            },
             "baseUrl": "谷歌搜索服务地址",
             "key": "谷歌搜索 API 密钥",
             "cx": "谷歌搜索引擎 ID"

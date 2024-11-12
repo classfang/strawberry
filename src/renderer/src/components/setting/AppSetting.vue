@@ -382,6 +382,17 @@ onMounted(() => {
           <!-- OpenAI -->
           <el-tab-pane :label="$t('app.setting.openai')">
             <el-form label-width="auto" label-position="left">
+              <!-- Guide URL -->
+              <el-form-item :label="$t('app.setting.item.openai.guide.label')">
+                <el-button
+                  link
+                  type="primary"
+                  @click="openInBrowser($t('app.setting.item.openai.guide.url'))"
+                >
+                  {{ $t('app.setting.item.openai.guide.url') }}
+                </el-button>
+              </el-form-item>
+
               <!-- Base URL -->
               <el-form-item :label="$t('app.setting.item.openai.baseUrl')">
                 <el-input v-model="appSettingStore.openAI.baseUrl" />
@@ -679,6 +690,17 @@ onMounted(() => {
                 >
                   <el-switch v-model="appSettingStore.internetSearchOption.enabled" />
                 </el-tooltip>
+              </el-form-item>
+
+              <!-- Guide URL -->
+              <el-form-item :label="$t('app.setting.item.internetSearch.google.guide.label')">
+                <el-button
+                  link
+                  type="primary"
+                  @click="openInBrowser($t('app.setting.item.internetSearch.google.guide.url'))"
+                >
+                  {{ $t('app.setting.item.internetSearch.google.guide.url') }}
+                </el-button>
               </el-form-item>
 
               <!-- Base URL -->

@@ -36,6 +36,10 @@
           "enUS": "en_US"
         },
         "openai": {
+          "guide": {
+            "label": "Guide",
+            "url": "https://platform.openai.com/docs/overview"
+          },
           "baseUrl": "Base URL",
           "apiKey": "API Key"
         },
@@ -90,6 +94,10 @@
         "internetSearch": {
           "enabled": "Enable Internet Search",
           "google": {
+            "guide": {
+              "label": "Guide",
+              "url": "https://developers.google.com/custom-search/v1/overview"
+            },
             "baseUrl": "Google Search Base Url",
             "key": "Google Search API Key",
             "cx": "Google Search Engine ID"
