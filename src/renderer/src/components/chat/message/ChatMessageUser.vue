@@ -123,7 +123,7 @@ const emits = defineEmits(['clear-context'])
     flex: 1 1 0;
     white-space: pre-wrap;
     line-break: anywhere;
-    background-color: var(--el-fill-color);
+    background-color: var(--el-fill-color-light);
     box-sizing: border-box;
     padding: $app-padding-small $app-padding-base;
     border-radius: $app-border-radius-base;
