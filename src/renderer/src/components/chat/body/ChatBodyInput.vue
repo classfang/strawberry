@@ -629,8 +629,8 @@ const selectAttachment = async () => {
 
   try {
     // 支持图片类型：https://platform.openai.com/docs/guides/vision/what-type-of-files-can-i-upload
-    const imageExtensions = ['.png', '.jpg', '.jpeg', '.webp', '.gif']
-    const fileExtensions = ['.text', '.pdf', '.docx', '.pptx', '.xlsx']
+    const imageExtensions = ['png', 'jpg', 'jpeg', 'webp', 'gif']
+    const fileExtensions = ['text', 'pdf', 'docx', 'pptx', 'xlsx']
     const files = await selectFile(true, [...imageExtensions, ...fileExtensions])
 
     for (const file of files) {

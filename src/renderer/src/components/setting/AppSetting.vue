@@ -147,7 +147,7 @@ const exportSetting = () => {
 const importSetting = async () => {
   appStateStore.importSettingFlag = true
 
-  const content = await selectFileAndRead(['.setting'])
+  const content = await selectFileAndRead(['setting'])
   const contentJson = JSON.parse(new TextDecoder().decode(content))
   if (contentJson.appSetting) {
     appSettingStore.setStoreFromJson(contentJson.appSetting)
@@ -175,7 +175,7 @@ const exportChat = async () => {
 const importChat = async () => {
   appStateStore.importChatFlag = true
 
-  const content = await selectFileAndRead(['.chat'])
+  const content = await selectFileAndRead(['chat'])
   const contentJson = JSON.parse(new TextDecoder().decode(content))
   let importCount = 0
   if (contentJson.chatSession) {
@@ -225,7 +225,7 @@ const exportMemory = async () => {
 const importMemory = async () => {
   appStateStore.importMemoryFlag = true
 
-  const content = await selectFileAndRead(['.memory'])
+  const content = await selectFileAndRead(['memory'])
   const contentJson = JSON.parse(new TextDecoder().decode(content))
   let importCount = 0
   if (contentJson.chatMemory) {
@@ -268,7 +268,7 @@ const exportCalendar = async () => {
 const importCalendar = async () => {
   appStateStore.importCalendarFlag = true
 
-  const content = await selectFileAndRead(['.calendar'])
+  const content = await selectFileAndRead(['calendar'])
   const contentJson = JSON.parse(new TextDecoder().decode(content))
   let importCount = 0
   if (contentJson.aiCalendar) {
