@@ -673,10 +673,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@langchain/community@^0.3.12":
-  version "0.3.12"
-  resolved "https://registry.npmmirror.com/@langchain/community/-/community-0.3.12.tgz#6d19cb7ae00c9e3b5eeababc93271145c59f5f8d"
-  integrity sha512-nGj/wyuARf/54JM0ey+MUP2nbuhe9fmdl+pZPCtescveDJL4b+2eaiaNMEYWDgpakSDTymh90wGTYgs9XLzIBg==
+"@langchain/community@^0.3.13":
+  version "0.3.13"
+  resolved "https://registry.npmmirror.com/@langchain/community/-/community-0.3.13.tgz#07fad74e30adfdc5c74eb69afb186e34f32c2ca3"
+  integrity sha512-D48SZXJgjqlDmoX7ZU6rik/1ynL3zKhhSypmIQln+dfwXECKKPNKkJLnCxNQkTHNc5NgpXwwXKeruWyySHSMHw==
   dependencies:
     "@langchain/openai" ">=0.2.0 <0.4.0"
     binary-extensions "^2.2.0"
@@ -689,10 +689,10 @@
     zod "^3.22.3"
     zod-to-json-schema "^3.22.5"
 
-"@langchain/core@^0.3.17":
-  version "0.3.17"
-  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.17.tgz#771f02d001e36d18485e0b172f5c70b73d3e5d26"
-  integrity sha512-o4lgmRcEqAyioP4Snxat1DGIT0oasOYsfo9uvAxVjwGq+XRicXm+bO3smCBSiiPQnd6jJ9ULWJlI0RFUV1oNqQ==
+"@langchain/core@^0.3.18":
+  version "0.3.18"
+  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.18.tgz#bbe3c518f3b48b0cecd426b36d22bac88486a214"
+  integrity sha512-IEZCrFs1Xd0J2FTH1D3Lnm3/Yk2r8LSpwDeLYwcCom3rNAK5k4mKQ2rwIpNq3YuqBdrTNMKRO+PopjkP1SB17A==
   dependencies:
     ansi-styles "^5.0.0"
     camelcase "6"
@@ -2808,10 +2808,10 @@ eslint-plugin-prettier@^5.2.1:
     prettier-linter-helpers "^1.0.0"
     synckit "^0.9.1"
 
-eslint-plugin-vue@^9.30.0:
-  version "9.30.0"
-  resolved "https://registry.npmmirror.com/eslint-plugin-vue/-/eslint-plugin-vue-9.30.0.tgz#801a7d2d7d3bb878fcf71932a1e11fd07529e2c4"
-  integrity sha512-CyqlRgShvljFkOeYK8wN5frh/OGTvkj1S7wlr2Q2pUvwq+X5VYiLd6ZjujpgSgLnys2W8qrBLkXQ41SUYaoPIQ==
+eslint-plugin-vue@^9.31.0:
+  version "9.31.0"
+  resolved "https://registry.npmmirror.com/eslint-plugin-vue/-/eslint-plugin-vue-9.31.0.tgz#5da53c2826f8efd8a62835aad596826053b1085e"
+  integrity sha512-aYMUCgivhz1o4tLkRHj5oq9YgYPM4/EJc0M7TAKRLCUA5OYxRLAhYEVD2nLtTwLyixEFI+/QXSvKU9ESZFgqjQ==
   dependencies:
     "@eslint-community/eslint-utils" "^4.4.0"
     globals "^13.24.0"
@@ -4528,10 +4528,10 @@ object-keys@^1.1.1:
   resolved "https://registry.npmmirror.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
-officeparser@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmmirror.com/officeparser/-/officeparser-5.0.0.tgz#b36496d9bf3014d79c68c476669c87a0c24c66cf"
-  integrity sha512-IpUOA2yEBgmOH7gwekzg5V6dSzi3p3Tn98f88Hk1KneG1Q7hZ+bZXbpAPqDc1F02r192joIZAZw9Wd0PT0NwRg==
+officeparser@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.npmmirror.com/officeparser/-/officeparser-5.1.1.tgz#5d28fd33cc094f42c1ce1a69cd5d29946d6a6eed"
+  integrity sha512-trBCPmYQDFUCmch6YBxHhMFkDyhTl+vG8PDQHPOwRyeCDKnrrKpph2W7og7hg5T5RRF0yeyaOMasN7GZWbYuCA==
   dependencies:
     "@xmldom/xmldom" "^0.8.10"
     concat-stream "^2.0.0"
@@ -5804,10 +5804,10 @@ verror@^1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite@^5.4.10:
-  version "5.4.10"
-  resolved "https://registry.npmmirror.com/vite/-/vite-5.4.10.tgz#d358a7bd8beda6cf0f3b7a450a8c7693a4f80c18"
-  integrity sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==
+vite@^5.4.11:
+  version "5.4.11"
+  resolved "https://registry.npmmirror.com/vite/-/vite-5.4.11.tgz#3b415cd4aed781a356c1de5a9ebafb837715f6e5"
+  integrity sha512-c7jFQRklXua0mTzneGW9QVyxFjUgwcihC4bXEtujIo2ouWCe1Ajt/amn2PCxYnhYfd5k09JX3SB7OYWFKYqj8Q==
   dependencies:
     esbuild "^0.21.3"
     postcss "^8.4.43"
