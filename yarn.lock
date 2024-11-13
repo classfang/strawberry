@@ -673,10 +673,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@langchain/community@^0.3.13":
-  version "0.3.13"
-  resolved "https://registry.npmmirror.com/@langchain/community/-/community-0.3.13.tgz#07fad74e30adfdc5c74eb69afb186e34f32c2ca3"
-  integrity sha512-D48SZXJgjqlDmoX7ZU6rik/1ynL3zKhhSypmIQln+dfwXECKKPNKkJLnCxNQkTHNc5NgpXwwXKeruWyySHSMHw==
+"@langchain/community@^0.3.14":
+  version "0.3.14"
+  resolved "https://registry.npmmirror.com/@langchain/community/-/community-0.3.14.tgz#33c9c907f2a8cccc0af7fdeab50b2b69d85321ac"
+  integrity sha512-zadvK0pu15Jp028VEV4wV+lYB1ViojSolSdSNMdE82KuaK97kH/F1aynQ2W+ebHzjr0lG3dUF3OfOqHU37VgwA==
   dependencies:
     "@langchain/openai" ">=0.2.0 <0.4.0"
     binary-extensions "^2.2.0"
