@@ -7,6 +7,10 @@
       "copy": "复制",
       "tip": "提示"
     },
+    "state": {
+      "waitAnswer": "等待回答",
+      "answering": "正在回答"
+    },
     "notification": {
       "newReply": "新回复"
     },

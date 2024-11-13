@@ -7,6 +7,10 @@
       "copy": "Copy",
       "tip": "Tip"
     },
+    "state": {
+      "waitAnswer": "Wait for answer",
+      "answering": "Answering"
+    },
     "notification": {
       "newReply": "New Reply"
     },
