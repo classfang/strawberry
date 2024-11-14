@@ -1,6 +1,6 @@
 {
   "name": "strawberry",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "LLM client(linux, mac, win)",
   "main": "./out/main/index.mjs",
   "author": "junki.cn",
