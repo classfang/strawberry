@@ -2,7 +2,6 @@ import { Platform } from '@electron-toolkit/utils'
 import i18n from '@renderer/i18n'
 import { Logger } from '@renderer/service/logger-service'
 import { ElMessage } from 'element-plus'
-import { Stats } from 'fs'
 
 // 多语言
 const { t } = i18n.global
@@ -99,7 +98,7 @@ export const addCacheFiles = (cacheFiles: { name: string; data: string }[]): Pro
 export const selectFile = (
   multiSelections?: boolean,
   extensions?: string[]
-): Promise<[{ name: string; extname: string; path: string; stat: Stats }]> => {
+): Promise<SelectFile[]> => {
   Logger.info(logPrefix, 'selectFile', multiSelections, extensions)
   return window.electron.ipcRenderer.invoke('select-file', multiSelections, extensions)
 }

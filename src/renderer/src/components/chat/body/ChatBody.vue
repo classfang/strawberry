@@ -39,6 +39,16 @@ const onShare = () => {
     bodyMessageListRef.value?.scrollToBottom(false)
   })
 }
+
+// 选择文件
+const selectAttachment = async (files?: SelectFile[]) => {
+  await bodyInputRef.value.selectAttachment(files)
+}
+
+// 暴露函数
+defineExpose({
+  selectAttachment
+})
 </script>
 
 <template>

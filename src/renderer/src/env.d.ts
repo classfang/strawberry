@@ -24,6 +24,14 @@ interface ChatMessageFile {
   size?: number
 }
 
+interface SelectFile {
+  name: string
+  extname: string
+  path?: string
+  base64?: string
+  size: number
+}
+
 interface ChatMessageLink {
   url: string
 }

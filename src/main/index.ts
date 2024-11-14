@@ -283,7 +283,7 @@ ipcMain.handle('select-file', (_event, multiSelections = false, extensions = ['*
       path,
       name: basename(path),
       extname: extname(path),
-      stat: fs.statSync(path)
+      size: fs.statSync(path).size
     }))
   }
   return []

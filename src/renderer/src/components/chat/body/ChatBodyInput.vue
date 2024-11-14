@@ -3,6 +3,7 @@ import { CircleCloseFilled, Document, Link, Monitor, Promotion } from '@element-
 import ChatBodyScreenshotList from '@renderer/components/chat/body/ChatBodyScreenshotList.vue'
 import AppIcon from '@renderer/components/icon/AppIcon.vue'
 import FileIcon from '@renderer/components/icon/FileIcon.vue'
+import { AppConfig } from '@renderer/config/AppConfig'
 import {
   checkDesktopScreenshots,
   langChainLoadFile,
@@ -621,7 +622,7 @@ const regenerate = (messageId: string) => {
 }
 
 // 选择附件
-const selectAttachment = async () => {
+const selectAttachment = async (files?: SelectFile[]) => {
   if (appStateStore.uploadFlag) {
     return
   }
@@ -629,24 +630,36 @@ const selectAttachment = async () => {
 
   try {
     // 支持图片类型：https://platform.openai.com/docs/guides/vision/what-type-of-files-can-i-upload
-    const imageExtensions = ['png', 'jpg', 'jpeg', 'webp', 'gif']
-    const fileExtensions = ['text', 'pdf', 'docx', 'pptx', 'xlsx']
-    const files = await selectFile(true, [...imageExtensions, ...fileExtensions])
+
+    // 没有传入文件列表，则触发文件选择器
+    if (!files) {
+      files = await selectFile(
+        true,
+        [...AppConfig.imageExtensions, ...AppConfig.fileExtensions].map((e) => e.replace('.', ''))
+      )
+    }
 
     for (const file of files) {
       // 保存文件到缓存目录
-      const saveName = await saveFileByPath(file.path, `${generateUUID()}${file.extname}`)
+      let saveName = ''
+      if (file.base64) {
+        saveName = await saveFileByBase64(file.base64, `${generateUUID()}${file.extname}`)
+      } else if (file.path) {
+        saveName = await saveFileByPath(file.path, `${generateUUID()}${file.extname}`)
+      } else {
+        continue
+      }
       const chatFile: ChatMessageFile = {
         name: file.name,
         saveName: saveName,
         extname: file.extname,
-        size: file.stat.size
+        size: file.size
       }
 
       // 图片和文件分开存储
-      if (imageExtensions.includes(chatFile.extname.toLowerCase())) {
+      if (AppConfig.imageExtensions.includes(chatFile.extname.toLowerCase())) {
         data.imageList.push(chatFile)
-      } else if (fileExtensions.includes(chatFile.extname.toLowerCase())) {
+      } else if (AppConfig.fileExtensions.includes(chatFile.extname.toLowerCase())) {
         data.fileList.push(chatFile)
       }
     }
@@ -824,7 +837,8 @@ const usageStatistic = (usage?: OpenAI.CompletionUsage) => {
 // 暴露函数
 defineExpose({
   regenerate,
-  updateQuestion
+  updateQuestion,
+  selectAttachment
 })
 
 onMounted(() => {

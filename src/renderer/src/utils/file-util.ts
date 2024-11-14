@@ -6,3 +6,10 @@ export const formatFileSize = (size: number | undefined): string => {
 
   return parseFloat((size / Math.pow(1024, digitGroups)).toFixed(2)) + ' ' + units[digitGroups]
 }
+
+export const getFileExtension = (fileName: string): string => {
+  if (!fileName || !fileName.includes('.')) {
+    return ''
+  }
+  return `.${fileName.split('.').pop()}`
+}
