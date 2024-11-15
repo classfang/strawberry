@@ -44,15 +44,15 @@ const handleDrop = async (event: DragEvent) => {
   const extensionList = [...AppConfig.imageExtensions, ...AppConfig.fileExtensions]
   const selectFiles: SelectFile[] = []
   for (const file of files) {
-    const extension = getFileExtension(file.name)
-    if (!extensionList.includes(extension.toLowerCase())) {
+    const extname = getFileExtension(file.name)
+    if (!extensionList.includes(extname.toLowerCase())) {
       continue
     }
 
     const base64 = await fileToBase64(file)
     selectFiles.push({
       name: file.name,
-      extname: extension,
+      extname: extname,
       base64: base64,
       size: file.size
     })

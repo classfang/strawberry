@@ -20,7 +20,8 @@ import { Logger } from '@renderer/service/logger-service'
 import { openaiChat } from '@renderer/service/openai-service'
 import { getToolsDefine, ToolEnum, toolsUse } from '@renderer/service/tool-service'
 import { useStore } from '@renderer/store/store'
-import { formatFileSize } from '@renderer/utils/file-util'
+import { fileToBase64 } from '@renderer/utils/base64-util'
+import { formatFileSize, getFileExtension } from '@renderer/utils/file-util'
 import { generateUUID } from '@renderer/utils/id-util'
 import { join } from '@renderer/utils/path-util'
 import { notification, openInBrowser } from '@renderer/utils/window-util'
@@ -731,54 +732,61 @@ const openScreenshotDialog = () => {
 }
 
 // 输入框粘贴监听
-const handleInputPaste = (event: ClipboardEvent) => {
+const handleInputPaste = async (event: ClipboardEvent) => {
   // 获取粘贴的内容
   const items = event.clipboardData?.items
-  if (!items) {
+  if (!items || items.length === 0) {
     return
   }
 
-  // 只获取第一张图片
-  const item = items[0]
-  if (item && item.kind === 'file' && item.type.startsWith('image/')) {
+  // 如果有文件
+  if (items[0].kind === 'file') {
     // 阻止默认粘贴行为
     event.preventDefault()
-    // 获取图片数据
-    const blob = item.getAsFile()
-    if (blob) {
-      const reader = new FileReader()
-      reader.onload = (e: ProgressEvent<FileReader>) => {
-        if (e.target && e.target.result) {
-          // 获取 base64 数据
-          const imageUrl = e.target.result as string
-          if (!imageUrl) {
-            return
-          }
-          const imageBase64 = imageUrl.split('base64,')[1]
-          if (!imageBase64) {
-            return
-          }
+  }
 
-          // 随机文件名
-          const extname = '.png'
-          const saveName = `${generateUUID()}${extname}`
+  // 遍历所有文件，需要先将getAsFile的结果存到数组，循环内不可有await
+  const extensionList = [...AppConfig.imageExtensions, ...AppConfig.fileExtensions]
+  const files: File[] = []
+  for (const item of items) {
+    if (item && item.kind === 'file') {
+      // 获取文件数据
+      const file = item.getAsFile()
+      if (file) {
+        const name = file.name
+        const extname = getFileExtension(name)
 
-          // 保存到本地
-          saveFileByBase64(imageBase64, saveName).then(() => {
-            // 保存成功后添加到图片预览
-            data.imageList.push({
-              name: saveName,
-              saveName: saveName,
-              extname: extname,
-              size: blob.size
-            })
-          })
+        if (!extensionList.includes(extname.toLowerCase())) {
+          continue
         }
+
+        files.push(file)
       }
-      // 加载图片数据
-      reader.readAsDataURL(blob)
     }
   }
+
+  // 遍历所有文件
+  const selectFiles: SelectFile[] = []
+  for (const file of files) {
+    if (file) {
+      const name = file.name
+      const extname = getFileExtension(name)
+
+      if (!extensionList.includes(extname.toLowerCase())) {
+        continue
+      }
+
+      const base64 = await fileToBase64(file)
+      selectFiles.push({
+        name: file.name,
+        extname: extname,
+        base64: base64,
+        size: file.size
+      })
+    }
+  }
+
+  await selectAttachment(selectFiles)
 }
 
 // 删除图片
