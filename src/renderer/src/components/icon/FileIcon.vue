@@ -13,7 +13,7 @@ defineProps({
 
 <template>
   <img
-    v-if="extname === '.txt'"
+    v-if="extname === '.txt' || extname === '.md'"
     :height="size"
     alt="avatar"
     src="@renderer/assets/image/file-txt.png"

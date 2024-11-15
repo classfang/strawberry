@@ -8,7 +8,7 @@ export const initLangChain = () => {
   // langChain 加载文件
   ipcMain.handle('lang-chain-load-file', async (_event, filePath: string) => {
     let loader: any = null
-    if (filePath.endsWith('.txt')) {
+    if (filePath.endsWith('.txt') || filePath.endsWith('.md')) {
       loader = new TextLoader(filePath)
     } else if (filePath.endsWith('.pdf')) {
       loader = new PDFLoader(filePath)
