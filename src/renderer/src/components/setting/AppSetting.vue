@@ -795,7 +795,7 @@ onMounted(() => {
                   :content="$t('app.setting.item.calendar.explain.enabled')"
                   placement="right"
                 >
-                  <el-switch v-model="appSettingStore.calendar.queryEnabled" />
+                  <el-switch v-model="appSettingStore.calendarOption.queryEnabled" />
                 </el-tooltip>
               </el-form-item>
               <el-form-item :label="$t('app.setting.item.calendar.addEnabled')">
@@ -803,7 +803,7 @@ onMounted(() => {
                   :content="$t('app.setting.item.calendar.explain.enabled')"
                   placement="right"
                 >
-                  <el-switch v-model="appSettingStore.calendar.addEnabled" />
+                  <el-switch v-model="appSettingStore.calendarOption.addEnabled" />
                 </el-tooltip>
               </el-form-item>
             </el-form>

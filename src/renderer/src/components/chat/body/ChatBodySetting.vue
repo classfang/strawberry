@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { Calendar } from '@element-plus/icons-vue'
+import {
+  Calendar,
+  ChatDotSquare,
+  ChatLineSquare,
+  Compass,
+  Microphone,
+  Picture
+} from '@element-plus/icons-vue'
 import MemoryDataSetting from '@renderer/components/setting/MemoryDataSetting.vue'
 import {
   OpenAIImageModelDallE3,
@@ -30,7 +37,13 @@ const visible = defineModel<boolean>('visible', {
     <div class="dialog-body">
       <el-tabs tab-position="left">
         <!-- 对话 -->
-        <el-tab-pane :label="$t('app.setting.chat')">
+        <el-tab-pane>
+          <template #label>
+            <div class="setting-item-label">
+              <el-icon><ChatLineSquare /></el-icon>
+              <span>{{ $t('app.setting.chat') }}</span>
+            </div>
+          </template>
           <el-form label-width="auto" label-position="left">
             <!-- Model -->
             <el-form-item :label="$t('app.setting.item.chat.model')">
@@ -156,7 +169,13 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 发音 -->
-        <el-tab-pane :label="$t('app.setting.speech')">
+        <el-tab-pane>
+          <template #label>
+            <div class="setting-item-label">
+              <el-icon><Microphone /></el-icon>
+              <span>{{ $t('app.setting.speech') }}</span>
+            </div>
+          </template>
           <el-form label-width="auto" label-position="left">
             <!-- Model -->
             <el-form-item :label="$t('app.setting.item.speech.model')">
@@ -209,10 +228,13 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 文生图 -->
-        <el-tab-pane
-          v-if="chatSessionStore.getActiveSession!.textToImageOption"
-          :label="$t('app.setting.textToImage')"
-        >
+        <el-tab-pane v-if="chatSessionStore.getActiveSession!.textToImageOption">
+          <template #label>
+            <div class="setting-item-label">
+              <el-icon><Picture /></el-icon>
+              <span>{{ $t('app.setting.textToImage') }}</span>
+            </div>
+          </template>
           <el-form label-width="auto" label-position="left">
             <!-- Enabled -->
             <el-form-item :label="$t('app.setting.item.textToImage.enabled')">
@@ -295,10 +317,13 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 记忆 -->
-        <el-tab-pane
-          v-if="chatSessionStore.getActiveSession!.memoryOption"
-          :label="$t('app.setting.memory')"
-        >
+        <el-tab-pane v-if="chatSessionStore.getActiveSession!.memoryOption">
+          <template #label>
+            <div class="setting-item-label">
+              <el-icon><ChatDotSquare /></el-icon>
+              <span>{{ $t('app.setting.memory') }}</span>
+            </div>
+          </template>
           <el-form label-width="auto" label-position="left">
             <!-- Enabled -->
             <el-form-item :label="$t('app.setting.item.memory.enabled')">
@@ -321,10 +346,13 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 互联网搜索 -->
-        <el-tab-pane
-          v-if="chatSessionStore.getActiveSession!.internetSearchOption"
-          :label="$t('app.setting.internetSearch')"
-        >
+        <el-tab-pane v-if="chatSessionStore.getActiveSession!.internetSearchOption">
+          <template #label>
+            <div class="setting-item-label">
+              <el-icon><Compass /></el-icon>
+              <span>{{ $t('app.setting.internetSearch') }}</span>
+            </div>
+          </template>
           <el-form label-width="auto" label-position="left">
             <!-- Enabled -->
             <el-form-item :label="$t('app.setting.item.internetSearch.enabled')">
@@ -336,7 +364,7 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 日历 -->
-        <el-tab-pane>
+        <el-tab-pane v-if="chatSessionStore.getActiveSession!.calendarOption">
           <template #label>
             <div class="setting-item-label">
               <el-icon><Calendar /></el-icon>
@@ -389,6 +417,14 @@ const visible = defineModel<boolean>('visible', {
   :deep(.el-tabs__content) {
     box-sizing: border-box;
     padding: $app-padding-extra-small $app-padding-small;
+  }
+
+  .setting-item-label {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: $app-padding-small;
   }
 
   .setting-item-guide {
