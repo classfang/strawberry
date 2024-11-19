@@ -3,10 +3,15 @@ import { Star, StarFilled } from '@element-plus/icons-vue'
 import NoteEditor from '@renderer/components/calendar/editor/NoteEditor.vue'
 import { useStore } from '@renderer/store/store'
 import dayjs from 'dayjs'
-import { reactive, toRefs } from 'vue'
+import { computed, reactive, toRefs } from 'vue'
 
 // 仓库
 const { aiCalendarStore } = useStore()
+
+// 组件传参
+const drawerVisible = defineModel<boolean>('drawerVisible', {
+  default: () => false
+})
 
 // 数据绑定
 const data = reactive({
@@ -33,6 +38,17 @@ const saveNote = () => {
   data.noteDialogVisible = false
 }
 
+// 计算Star数量
+const starCount = computed(() => {
+  let count = 0
+  Object.values(aiCalendarStore.dayNotes).forEach((dayNote) => {
+    if (dayNote?.starred) {
+      count++
+    }
+  })
+  return count
+})
+
 // 加星
 const starNote = (day: string) => {
   if (aiCalendarStore.dayNotes[day]) {
@@ -51,61 +67,94 @@ const unstarNote = (day: string) => {
 const changeCurrent = (day: string) => {
   data.current = dayjs(day).toDate()
 }
-
-// 暴露方法
-defineExpose({
-  changeCurrent
-})
 </script>
 
 <template>
-  <div class="ai-calendar">
-    <el-calendar v-model="current">
-      <template #date-cell="t">
-        <div class="ai-calendar-day" @dblclick="openNoteDialogVisible(t.data.day)">
-          <div class="ai-calendar-day-title">
-            <div>{{ dayjs(t.data.date).date() }}</div>
-            <template v-if="aiCalendarStore.dayNotes[t.data.day]">
-              <transition-group name="el-zoom-in-center">
-                <StarFilled
-                  v-if="aiCalendarStore.dayNotes[t.data.day]?.starred"
-                  class="ai-calendar-day-starred"
-                  @click="unstarNote(t.data.day)"
-                />
-                <Star v-else class="ai-calendar-day-star" @click="starNote(t.data.day)" />
-              </transition-group>
-            </template>
-          </div>
-          <div class="ai-calendar-day-content">
-            {{ aiCalendarStore.dayNotes[t.data.day]?.content }}
-          </div>
-        </div>
-      </template>
-    </el-calendar>
-
-    <el-dialog
-      v-model="noteDialogVisible"
-      :title="$t('app.calendar.note.title') + ` ${dayjs(current).format('YYYY/MM/DD')}`"
-      width="700"
-      align-center
-      destroy-on-close
-      :close-on-click-modal="false"
-    >
-      <div class="dialog-body">
-        <el-scrollbar height="100%">
-          <NoteEditor v-model:content="noteContent" :min-rows="20" />
-        </el-scrollbar>
+  <el-drawer
+    v-model="drawerVisible"
+    size="90%"
+    direction="btt"
+    class="ai-calendar-drawer"
+    destroy-on-close
+    append-to-body
+  >
+    <template #header>
+      <div class="drawer-header">
+        <div class="drawer-header-title">{{ $t('app.calendar.title') }}</div>
+        <el-dropdown trigger="click" placement="bottom-start">
+          <el-button :icon="Star" size="small" type="primary" plain>
+            {{ $t('app.calendar.starredList.title') }}
+            {{ starCount > 0 ? starCount : '' }}
+          </el-button>
+          <template #dropdown>
+            <div class="starred-list">
+              <el-scrollbar v-if="starCount > 0" height="100%">
+                <el-dropdown-menu>
+                  <template v-for="(note, key) in aiCalendarStore.dayNotes">
+                    <el-dropdown-item v-if="note.starred" :key="key" @click="changeCurrent(key)">
+                      <el-text truncated> [ {{ key }} ] {{ note.content }} </el-text>
+                    </el-dropdown-item>
+                  </template>
+                </el-dropdown-menu>
+              </el-scrollbar>
+              <template v-else>
+                <div class="starred-list-empty">
+                  {{ $t('app.calendar.starredList.empty') }}
+                </div>
+              </template>
+            </div>
+          </template>
+        </el-dropdown>
       </div>
-      <template #footer>
-        <el-button @click="noteDialogVisible = false">
-          {{ $t('app.common.cancel') }}
-        </el-button>
-        <el-button type="primary" @click="saveNote()">
-          {{ $t('app.common.confirm') }}
-        </el-button>
-      </template>
-    </el-dialog>
-  </div>
+    </template>
+    <div class="ai-calendar">
+      <el-calendar v-model="current">
+        <template #date-cell="t">
+          <div class="ai-calendar-day" @dblclick="openNoteDialogVisible(t.data.day)">
+            <div class="ai-calendar-day-title">
+              <div>{{ dayjs(t.data.date).date() }}</div>
+              <template v-if="aiCalendarStore.dayNotes[t.data.day]">
+                <transition-group name="el-zoom-in-center">
+                  <StarFilled
+                    v-if="aiCalendarStore.dayNotes[t.data.day]?.starred"
+                    class="ai-calendar-day-starred"
+                    @click="unstarNote(t.data.day)"
+                  />
+                  <Star v-else class="ai-calendar-day-star" @click="starNote(t.data.day)" />
+                </transition-group>
+              </template>
+            </div>
+            <div class="ai-calendar-day-content">
+              {{ aiCalendarStore.dayNotes[t.data.day]?.content }}
+            </div>
+          </div>
+        </template>
+      </el-calendar>
+
+      <el-dialog
+        v-model="noteDialogVisible"
+        :title="$t('app.calendar.note.title') + ` ${dayjs(current).format('YYYY/MM/DD')}`"
+        width="700"
+        align-center
+        destroy-on-close
+        :close-on-click-modal="false"
+      >
+        <div class="dialog-body">
+          <el-scrollbar height="100%">
+            <NoteEditor v-model:content="noteContent" :min-rows="20" />
+          </el-scrollbar>
+        </div>
+        <template #footer>
+          <el-button @click="noteDialogVisible = false">
+            {{ $t('app.common.cancel') }}
+          </el-button>
+          <el-button type="primary" @click="saveNote()">
+            {{ $t('app.common.confirm') }}
+          </el-button>
+        </template>
+      </el-dialog>
+    </div>
+  </el-drawer>
 </template>
 
 <style lang="scss" scoped>
