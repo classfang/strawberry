@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Calendar } from '@element-plus/icons-vue'
 import MemoryDataSetting from '@renderer/components/setting/MemoryDataSetting.vue'
 import {
   OpenAIImageModelDallE3,
@@ -330,6 +331,37 @@ const visible = defineModel<boolean>('visible', {
               <el-switch
                 v-model="chatSessionStore.getActiveSession!.internetSearchOption.enabled"
               />
+            </el-form-item>
+          </el-form>
+        </el-tab-pane>
+
+        <!-- 日历 -->
+        <el-tab-pane>
+          <template #label>
+            <div class="setting-item-label">
+              <el-icon><Calendar /></el-icon>
+              <span>{{ $t('app.setting.calendar') }}</span>
+            </div>
+          </template>
+          <el-form label-width="auto" label-position="left">
+            <!-- Enabled -->
+            <el-form-item :label="$t('app.setting.item.calendar.queryEnabled')">
+              <el-tooltip
+                :content="$t('app.setting.item.calendar.explain.enabled')"
+                placement="right"
+              >
+                <el-switch
+                  v-model="chatSessionStore.getActiveSession!.calendarOption.queryEnabled"
+                />
+              </el-tooltip>
+            </el-form-item>
+            <el-form-item :label="$t('app.setting.item.calendar.addEnabled')">
+              <el-tooltip
+                :content="$t('app.setting.item.calendar.explain.enabled')"
+                placement="right"
+              >
+                <el-switch v-model="chatSessionStore.getActiveSession!.calendarOption.addEnabled" />
+              </el-tooltip>
             </el-form-item>
           </el-form>
         </el-tab-pane>

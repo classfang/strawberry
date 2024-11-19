@@ -55,6 +55,7 @@ export const useChatSessionStore = defineStore({
       textToImageOption: TextToImageOption
       memoryOption: MemoryOption
       internetSearchOption: InternetSearchOption
+      calendarOption: CalendarOption
     }) {
       const firstSession = this.sessions.at(0)
       // 如果存在新的空对话，则删除
@@ -74,7 +75,8 @@ export const useChatSessionStore = defineStore({
         speechOption: setting.speechOption,
         textToImageOption: setting.textToImageOption,
         memoryOption: setting.memoryOption,
-        internetSearchOption: setting.internetSearchOption
+        internetSearchOption: setting.internetSearchOption,
+        calendarOption: setting.calendarOption
       })
       this.activeSessionId = sessionId
     },

@@ -19,7 +19,8 @@ const createSession = () => {
     copyObj({
       ...appSettingStore.openAI,
       memoryOption: appSettingStore.memoryOption,
-      internetSearchOption: appSettingStore.internetSearchOption
+      internetSearchOption: appSettingStore.internetSearchOption,
+      calendarOption: appSettingStore.calendarOption
     })
   )
   emits('create-session')

@@ -126,10 +126,10 @@ const sendQuestion = async (event?: KeyboardEvent, regenerateFlag?: boolean) => 
 
   // 工具名称列表
   const toolNameList: ToolEnum[] = []
-  if (appSettingStore.calendar.queryEnabled) {
+  if (chatSessionStore.getActiveSession!.calendarOption?.queryEnabled) {
     toolNameList.push(ToolEnum.CALENDAR_NOTE_QUERY)
   }
-  if (appSettingStore.calendar.addEnabled) {
+  if (chatSessionStore.getActiveSession!.calendarOption?.addEnabled) {
     toolNameList.push(ToolEnum.CALENDAR_NOTE_ADD)
   }
   if (chatSessionStore.getActiveSession!.memoryOption?.enabled) {

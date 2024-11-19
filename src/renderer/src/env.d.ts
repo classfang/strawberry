@@ -100,6 +100,11 @@ interface MemoryOption {
   enabled: boolean
 }
 
+interface CalendarOption {
+  queryEnabled: boolean
+  addEnabled: boolean
+}
+
 interface ChatMemory extends BaseEntity {
   content: string
 }
@@ -122,6 +127,7 @@ interface ChatSession extends BaseEntity {
   textToImageOption: TextToImageOption
   memoryOption: MemoryOption
   internetSearchOption: InternetSearchOption
+  calendarOption: CalendarOption
 }
 
 interface DesktopScreenshot {
