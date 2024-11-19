@@ -25,6 +25,9 @@ const { chatSessionStore } = useStore()
 const visible = defineModel<boolean>('visible', {
   default: () => false
 })
+const activeTabName = defineModel<string>('activeTabName', {
+  default: () => 'chat'
+})
 </script>
 
 <template>
@@ -35,9 +38,9 @@ const visible = defineModel<boolean>('visible', {
     align-center
   >
     <div class="dialog-body">
-      <el-tabs tab-position="left">
+      <el-tabs tab-position="left" v-model="activeTabName">
         <!-- 对话 -->
-        <el-tab-pane>
+        <el-tab-pane name="chat">
           <template #label>
             <div class="setting-item-label">
               <el-icon><ChatLineSquare /></el-icon>
@@ -169,7 +172,7 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 发音 -->
-        <el-tab-pane>
+        <el-tab-pane name="speech">
           <template #label>
             <div class="setting-item-label">
               <el-icon><Microphone /></el-icon>
@@ -228,7 +231,7 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 文生图 -->
-        <el-tab-pane v-if="chatSessionStore.getActiveSession!.textToImageOption">
+        <el-tab-pane v-if="chatSessionStore.getActiveSession!.textToImageOption" name="textToImage">
           <template #label>
             <div class="setting-item-label">
               <el-icon><Picture /></el-icon>
@@ -317,7 +320,7 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 记忆 -->
-        <el-tab-pane v-if="chatSessionStore.getActiveSession!.memoryOption">
+        <el-tab-pane v-if="chatSessionStore.getActiveSession!.memoryOption" name="memory">
           <template #label>
             <div class="setting-item-label">
               <el-icon><ChatDotSquare /></el-icon>
@@ -346,7 +349,10 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 互联网搜索 -->
-        <el-tab-pane v-if="chatSessionStore.getActiveSession!.internetSearchOption">
+        <el-tab-pane
+          v-if="chatSessionStore.getActiveSession!.internetSearchOption"
+          name="internetSearch"
+        >
           <template #label>
             <div class="setting-item-label">
               <el-icon><Compass /></el-icon>
@@ -364,7 +370,7 @@ const visible = defineModel<boolean>('visible', {
         </el-tab-pane>
 
         <!-- 日历 -->
-        <el-tab-pane v-if="chatSessionStore.getActiveSession!.calendarOption">
+        <el-tab-pane v-if="chatSessionStore.getActiveSession!.calendarOption" name="calendar">
           <template #label>
             <div class="setting-item-label">
               <el-icon><Calendar /></el-icon>

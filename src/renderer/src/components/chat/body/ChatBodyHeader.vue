@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Calendar, ChatDotSquare, Compass, Picture } from '@element-plus/icons-vue'
 import ChatBodySetting from '@renderer/components/chat/body/ChatBodySetting.vue'
 import ChatBodyStatistic from '@renderer/components/chat/body/ChatBodyStatistic.vue'
 import AppIcon from '@renderer/components/icon/AppIcon.vue'
@@ -13,12 +14,20 @@ const shareVisible = defineModel<boolean>('shareVisible', {
 // 数据绑定
 const data = reactive({
   currentChatSettingVisible: false,
-  currentChatStatisticVisible: false
+  currentChatStatisticVisible: false,
+  activeTabName: ''
 })
-const { currentChatSettingVisible, currentChatStatisticVisible } = toRefs(data)
+const { currentChatSettingVisible, currentChatStatisticVisible, activeTabName } = toRefs(data)
 
 // 仓库
 const { chatSessionStore, appSettingStore } = useStore()
+
+const openSetting = (tabName = 'chat') => {
+  if (!chatSessionStore.getActiveSession!.archived) {
+    data.currentChatSettingVisible = true
+    data.activeTabName = tabName
+  }
+}
 </script>
 
 <template>
@@ -29,20 +38,52 @@ const { chatSessionStore, appSettingStore } = useStore()
     }"
   >
     <el-tooltip :content="$t('app.chat.body.header.currentChat.setting')">
-      <div
-        class="model-name"
-        @click="
-          () => {
-            if (!chatSessionStore.getActiveSession!.archived) {
-              currentChatSettingVisible = true
-            }
-          }
-        "
-      >
+      <div class="model-name" @click="openSetting()">
         <div>{{ chatSessionStore.getActiveSession!.chatOption.model }}</div>
         <AppIcon name="arrow-down" class="model-name-icon" />
       </div>
     </el-tooltip>
+
+    <div class="plugin-icon-list">
+      <el-tooltip :content="$t('app.setting.textToImage')">
+        <el-icon
+          :class="{
+            'plugin-icon-active': chatSessionStore.getActiveSession!.textToImageOption?.enabled
+          }"
+          @click="openSetting('textToImage')"
+          ><Picture
+        /></el-icon>
+      </el-tooltip>
+      <el-tooltip :content="$t('app.setting.memory')">
+        <el-icon
+          :class="{
+            'plugin-icon-active': chatSessionStore.getActiveSession!.memoryOption?.enabled
+          }"
+          @click="openSetting('memory')"
+          ><ChatDotSquare
+        /></el-icon>
+      </el-tooltip>
+      <el-tooltip :content="$t('app.setting.internetSearch')">
+        <el-icon
+          :class="{
+            'plugin-icon-active': chatSessionStore.getActiveSession!.internetSearchOption?.enabled
+          }"
+          @click="openSetting('internetSearch')"
+          ><Compass
+        /></el-icon>
+      </el-tooltip>
+      <el-tooltip :content="$t('app.setting.calendar')">
+        <el-icon
+          :class="{
+            'plugin-icon-active':
+              chatSessionStore.getActiveSession!.calendarOption?.queryEnabled ||
+              chatSessionStore.getActiveSession!.calendarOption?.addEnabled
+          }"
+          @click="openSetting('calendar')"
+          ><Calendar
+        /></el-icon>
+      </el-tooltip>
+    </div>
 
     <template v-if="!shareVisible">
       <!-- 联网开关 -->
@@ -92,7 +133,10 @@ const { chatSessionStore, appSettingStore } = useStore()
     </el-button>
 
     <!-- 当前对话设置弹窗 -->
-    <ChatBodySetting v-model:visible="currentChatSettingVisible" />
+    <ChatBodySetting
+      v-model:visible="currentChatSettingVisible"
+      v-model:active-tab-name="activeTabName"
+    />
 
     <!-- 当前对话统计弹窗 -->
     <ChatBodyStatistic v-model:visible="currentChatStatisticVisible" />
@@ -125,7 +169,6 @@ const { chatSessionStore, appSettingStore } = useStore()
     color: var(--el-text-color-regular);
     transition: color $app-transition-base;
     cursor: pointer;
-    margin-right: auto;
 
     &:hover {
       color: var(--el-text-color-primary);
@@ -140,6 +183,18 @@ const { chatSessionStore, appSettingStore } = useStore()
       width: calc($app-icon-size-base - 4px);
       color: var(--el-text-color-secondary);
       transition: color $app-transition-base;
+    }
+  }
+
+  .plugin-icon-list {
+    margin-right: auto;
+    display: flex;
+    gap: $app-padding-base;
+    cursor: pointer;
+    color: var(--el-text-color-secondary);
+
+    .plugin-icon-active {
+      color: var(--el-text-color-primary);
     }
   }
 
