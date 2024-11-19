@@ -2,7 +2,15 @@
   <img src="/resources/icon.png" alt="logo" width="120">
 </p>
 <h2 align="center">Strawberry</h2>
-<h4 align="center">ChatGPT 客户端(linux, mac, win)</h4>
+<h4 align="center">OpenAI ChatGPT 客户端(linux, mac, win)</h4>
+
+![Static Badge](https://img.shields.io/badge/i18n-2_languages-blue)
+![GitHub Release](https://img.shields.io/github/v/release/classfang/strawberry)
+![GitHub Release Date](https://img.shields.io/github/release-date/classfang/strawberry)
+![GitHub last commit](https://img.shields.io/github/last-commit/classfang/strawberry)
+![GitHub License](https://img.shields.io/github/license/classfang/strawberry)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/classfang/strawberry/total)
+![GitHub repo size](https://img.shields.io/github/repo-size/classfang/strawberry)
 
 ## 1. 为什么选择 Strawberry
 
