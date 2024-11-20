@@ -291,7 +291,8 @@
             "content": "将为你生成用于分享的文本文档",
             "confirm": "确认",
             "cancel": "取消"
-          }
+          },
+          "modelInfo": "使用来自 OpenAI 的 _ 模型"
         }
       }
     },

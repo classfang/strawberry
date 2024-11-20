@@ -97,13 +97,19 @@ const saveImage = () => {
           <el-image v-if="messageListImageUrl" :src="messageListImageUrl" />
           <el-divider class="share-view-content-divider" />
           <div class="share-view-content-footer">
-            <img class="qr-code" alt="qr-code" src="@renderer/assets/image/github-qr-code.png" />
-            <div class="model-info">
-              <div class="model-info-name">
-                {{ chatSessionStore.getActiveSession!.chatOption.model }}
+            <img class="app-logo" alt="qr-code" src="../../../assets/image/app-logo.png" />
+            <div class="app-info">
+              <div class="app-name">Strawberry</div>
+              <div class="model-info">
+                {{
+                  $t('app.chat.body.share.modelInfo').replace(
+                    '_',
+                    chatSessionStore.getActiveSession!.chatOption.model
+                  )
+                }}
               </div>
-              <div class="model-info-from">Power by OpenAI</div>
             </div>
+            <img class="qr-code" alt="qr-code" src="@renderer/assets/image/github-qr-code.png" />
           </div>
         </div>
       </el-scrollbar>
@@ -139,32 +145,39 @@ const saveImage = () => {
     }
 
     .share-view-content-footer {
-      height: 45px;
+      height: 50px;
       padding: $app-padding-base;
       display: flex;
       align-content: center;
-      justify-content: space-between;
+      gap: $app-padding-small;
 
-      .qr-code {
+      .app-logo {
         height: 100%;
       }
 
-      .model-info {
+      .app-info {
         height: 100%;
+        box-sizing: border-box;
+        padding: 5px 0;
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: space-between;
 
-        .model-info-name {
+        .app-name {
           font-size: var(--el-font-size-base);
-          color: var(--el-text-color-secondary);
+          color: var(--el-text-color-regular);
         }
 
-        .model-info-from {
+        .model-info {
           font-size: var(--el-font-size-extra-small);
           color: var(--el-text-color-secondary);
         }
+      }
+
+      .qr-code {
+        height: 100%;
+        margin-left: auto;
       }
     }
   }

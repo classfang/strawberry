@@ -291,7 +291,8 @@
             "content": "An text file will be generated for you to share",
             "confirm": "Confirm",
             "cancel": "Cancel"
-          }
+          },
+          "modelInfo": "Use the _ model from OpenAI"
         }
       }
     },
