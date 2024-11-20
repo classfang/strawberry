@@ -97,8 +97,13 @@ const saveImage = () => {
           <el-image v-if="messageListImageUrl" :src="messageListImageUrl" />
           <el-divider class="share-view-content-divider" />
           <div class="share-view-content-footer">
-            <div>{{ chatSessionStore.getActiveSession!.chatOption.model }}</div>
-            <div>Power by OpenAI</div>
+            <img class="qr-code" alt="qr-code" src="@renderer/assets/image/github-qr-code.png" />
+            <div class="model-info">
+              <div class="model-info-name">
+                {{ chatSessionStore.getActiveSession!.chatOption.model }}
+              </div>
+              <div class="model-info-from">Power by OpenAI</div>
+            </div>
           </div>
         </div>
       </el-scrollbar>
@@ -134,12 +139,33 @@ const saveImage = () => {
     }
 
     .share-view-content-footer {
-      box-sizing: border-box;
+      height: 45px;
       padding: $app-padding-base;
       display: flex;
       align-content: center;
       justify-content: space-between;
-      font-size: var(--el-font-size-small);
+
+      .qr-code {
+        height: 100%;
+      }
+
+      .model-info {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        .model-info-name {
+          font-size: var(--el-font-size-base);
+          color: var(--el-text-color-secondary);
+        }
+
+        .model-info-from {
+          font-size: var(--el-font-size-extra-small);
+          color: var(--el-text-color-secondary);
+        }
+      }
     }
   }
 }
