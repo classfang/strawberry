@@ -212,6 +212,13 @@
           "question": {
             "placeholder": "Send a message to LLM"
           },
+          "mention": {
+            "calendar_note_query": "Query Calendar Note",
+            "calendar_note_add": "Add Calendar Note",
+            "memory": "Add Memory",
+            "text_to_image": "Generate Image",
+            "internet_search": "Internet Search"
+          },
           "pleaseConfigure": "Please configure the ",
           "attachment": {
             "title": "Select Attachment",

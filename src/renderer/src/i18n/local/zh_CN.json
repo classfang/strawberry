@@ -212,6 +212,13 @@
           "question": {
             "placeholder": "给大模型发送消息"
           },
+          "mention": {
+            "calendar_note_query": "查询备忘",
+            "calendar_note_add": "新增备忘",
+            "memory": "新增记忆",
+            "text_to_image": "生成图片",
+            "internet_search": "联网搜索"
+          },
           "pleaseConfigure": "请配置 ",
           "attachment": {
             "title": "选择附件",

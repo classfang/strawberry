@@ -40,18 +40,24 @@ const { chatSessionStore, appSettingStore, appStateStore, chatMemoryStore, aiCal
 // 数据绑定
 const data = reactive({
   question: '',
+  mentionOptions: Object.values(ToolEnum).map((toolName) => ({
+    label: t(`app.chat.body.input.mention.${toolName}`),
+    value: t(`app.chat.body.input.mention.${toolName}`),
+    toolName: toolName
+  })),
   imageList: [] as ChatMessageFile[],
   fileList: [] as ChatMessageFile[],
   linkList: [] as ChatMessageLink[],
   screenshotDialogVisible: false
 })
-const { question, imageList, fileList, linkList, screenshotDialogVisible } = toRefs(data)
+const { question, mentionOptions, imageList, fileList, linkList, screenshotDialogVisible } =
+  toRefs(data)
 
 // 定义事件
 const emits = defineEmits(['send-question', 'update-message'])
 
 // ref
-const inputTextareaRef = ref()
+const questionTextareaRef = ref()
 
 // 阻断控制
 let abortCtr = new AbortController()
@@ -59,7 +65,7 @@ let abortCtr = new AbortController()
 // 文本域获得焦点
 const inputTextareaFocus = () => {
   nextTick(() => {
-    inputTextareaRef.value?.focus()
+    questionTextareaRef.value?.input.focus()
   })
 }
 
@@ -71,7 +77,8 @@ const sendQuestion = async (event?: KeyboardEvent, regenerateFlag?: boolean) => 
       appStateStore.chatLoadingFlag ||
       appStateStore.uploadFlag ||
       !data.question.trim() ||
-      event?.isComposing
+      event?.isComposing ||
+      questionTextareaRef.value?.dropdownVisible
     ) {
       event?.preventDefault()
       return
@@ -117,30 +124,15 @@ const sendQuestion = async (event?: KeyboardEvent, regenerateFlag?: boolean) => 
     appStateStore.chatAnswerFlag = true
   }
 
+  // 工具名称列表
+  const toolNameList = getToolNameList(chatSessionStore.getActiveSession!.messages.at(-2)?.content)
+
   // 转换消息列表
   const sendMessages = await convertMessages(
     chatSessionStore.getActiveSession!.messages,
     chatSessionStore.getActiveSession!.chatOption.contextSize,
     1
   )
-
-  // 工具名称列表
-  const toolNameList: ToolEnum[] = []
-  if (chatSessionStore.getActiveSession!.calendarOption?.queryEnabled) {
-    toolNameList.push(ToolEnum.CALENDAR_NOTE_QUERY)
-  }
-  if (chatSessionStore.getActiveSession!.calendarOption?.addEnabled) {
-    toolNameList.push(ToolEnum.CALENDAR_NOTE_ADD)
-  }
-  if (chatSessionStore.getActiveSession!.memoryOption?.enabled) {
-    toolNameList.push(ToolEnum.MEMORY)
-  }
-  if (chatSessionStore.getActiveSession!.textToImageOption?.enabled) {
-    toolNameList.push(ToolEnum.TEXT_TO_IMAGE)
-  }
-  if (chatSessionStore.getActiveSession!.internetSearchOption?.enabled) {
-    toolNameList.push(ToolEnum.INTERNET_SEARCH)
-  }
 
   // 判断配置是否正确
   if (!appSettingStore.openAI.baseUrl) {
@@ -388,6 +380,41 @@ const functionCall = async (params: {
       finishAnswer(noSessionNameFlag, regenerateFlag)
     }
   })
+}
+
+// 获取当前使用的工具列表
+const getToolNameList = (question: string | undefined) => {
+  if (!question) {
+    return []
+  }
+
+  const toolNameList: Set<ToolEnum> = new Set<ToolEnum>()
+  if (question.startsWith('@')) {
+    // 只获取第一个提及
+    const mentionLabel = question.substring(question.indexOf('@') + 1, question.indexOf(' '))
+    if (mentionLabel) {
+      const mention = data.mentionOptions.find((m) => m.label === mentionLabel)
+      if (mention) {
+        toolNameList.add(mention.toolName)
+      }
+    }
+  }
+  if (chatSessionStore.getActiveSession!.calendarOption?.queryEnabled) {
+    toolNameList.add(ToolEnum.CALENDAR_NOTE_QUERY)
+  }
+  if (chatSessionStore.getActiveSession!.calendarOption?.addEnabled) {
+    toolNameList.add(ToolEnum.CALENDAR_NOTE_ADD)
+  }
+  if (chatSessionStore.getActiveSession!.memoryOption?.enabled) {
+    toolNameList.add(ToolEnum.MEMORY)
+  }
+  if (chatSessionStore.getActiveSession!.textToImageOption?.enabled) {
+    toolNameList.add(ToolEnum.TEXT_TO_IMAGE)
+  }
+  if (chatSessionStore.getActiveSession!.internetSearchOption?.enabled) {
+    toolNameList.add(ToolEnum.INTERNET_SEARCH)
+  }
+  return [...toolNameList]
 }
 
 // 转换消息列表
@@ -955,8 +982,8 @@ onMounted(() => {
           </el-tooltip>
 
           <!-- 文本域 -->
-          <el-input
-            ref="inputTextareaRef"
+          <el-mention
+            ref="questionTextareaRef"
             v-model="question"
             type="textarea"
             :placeholder="$t('app.chat.body.input.question.placeholder')"
@@ -964,6 +991,8 @@ onMounted(() => {
             resize="none"
             @keydown.enter="sendQuestion"
             @paste="handleInputPaste"
+            :options="mentionOptions"
+            whole
           />
 
           <!-- 发送按钮 -->
