@@ -22,6 +22,10 @@
 
 <img src="/demo/zhCN/2.png" alt="demo">
 
+<img src="/demo/zhCN/3.png" alt="demo">
+
+<img src="/demo/zhCN/4.png" alt="demo">
+
 ## 2. 开发路线和贡献
 
 我们希望为 Strawberry 添加更多功能。目前最重要的是：
