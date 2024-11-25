@@ -45,7 +45,7 @@
 - [x] Token 统计
 - [x] 日历备忘
 
-如果你是一名开发者，想要帮助解决其中的任何一个问题，请打开一个 issue 来讨论解决。
+如果你有任何建议或者想法，非常欢迎在 [discussions](https://github.com/classfang/strawberry/discussions) 打开一个话题来讨论。
 
 ## 3. 最新安装包
 
@@ -58,10 +58,10 @@
 打开终端，输入以下命令，并执行：
 
 ```shell
-sudo xattr -d com.apple.quarantine /Applications/xxxx.app
+sudo xattr -d com.apple.quarantine /Applications/Strawberry.app
 ```
 
-注意：/Applications/xxxx.app 换成你的App路径。
+注意：/Applications/Strawberry.app 换成你的App路径。
 
 ## 4. 开发
 
