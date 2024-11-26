@@ -7,11 +7,11 @@ import OpenAI from 'openai'
 
 // 所有工具
 export enum ToolEnum {
+  INTERNET_SEARCH = 'internet_search',
+  TEXT_TO_IMAGE = 'text_to_image',
   CALENDAR_NOTE_QUERY = 'calendar_note_query',
   CALENDAR_NOTE_ADD = 'calendar_note_add',
-  MEMORY = 'memory',
-  TEXT_TO_IMAGE = 'text_to_image',
-  INTERNET_SEARCH = 'internet_search'
+  MEMORY = 'memory'
 }
 
 // 工具定义

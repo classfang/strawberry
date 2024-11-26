@@ -27,7 +27,7 @@ import { join } from '@renderer/utils/path-util'
 import { notification, openInBrowser } from '@renderer/utils/window-util'
 import { Action, ElMessage, ElMessageBox, MessageBoxState } from 'element-plus'
 import OpenAI from 'openai'
-import { nextTick, onMounted, reactive, ref, toRefs } from 'vue'
+import { nextTick, onMounted, reactive, ref, toRefs, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 // i18n
@@ -37,14 +37,19 @@ const { t } = useI18n()
 const { chatSessionStore, appSettingStore, appStateStore, chatMemoryStore, aiCalendarStore } =
   useStore()
 
-// 数据绑定
-const data = reactive({
-  question: '',
-  mentionOptions: Object.values(ToolEnum).map((toolName) => ({
+// 获取提及列表
+const getMentionOptions = () => {
+  return Object.values(ToolEnum).map((toolName) => ({
     label: t(`app.chat.body.input.mention.${toolName}`),
     value: t(`app.chat.body.input.mention.${toolName}`),
     toolName: toolName
-  })),
+  }))
+}
+
+// 数据绑定
+const data = reactive({
+  question: '',
+  mentionOptions: getMentionOptions(),
   imageList: [] as ChatMessageFile[],
   fileList: [] as ChatMessageFile[],
   linkList: [] as ChatMessageLink[],
@@ -52,6 +57,14 @@ const data = reactive({
 })
 const { question, mentionOptions, imageList, fileList, linkList, screenshotDialogVisible } =
   toRefs(data)
+
+// 监听语言切换
+watch(
+  () => appSettingStore.app.locale,
+  () => {
+    data.mentionOptions = getMentionOptions()
+  }
+)
 
 // 定义事件
 const emits = defineEmits(['send-question', 'update-message'])
