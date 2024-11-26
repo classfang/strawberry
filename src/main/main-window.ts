@@ -84,6 +84,10 @@ export const createWindow = (store: Record<string, any>) => {
 
   // 使用外部浏览器打开链接
   mainWindow.webContents.on('will-navigate', (event, url) => {
+    // 开发阶段，热更新放行
+    if (is.dev && url.startsWith(process.env['ELECTRON_RENDERER_URL']!)) {
+      return
+    }
     // 阻止默认行为
     event.preventDefault()
     // 使用外部浏览器打开链接
