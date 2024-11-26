@@ -1002,10 +1002,10 @@ onMounted(() => {
             :placeholder="$t('app.chat.body.input.question.placeholder')"
             :autosize="{ minRows: 1, maxRows: 8 }"
             resize="none"
-            @keydown.enter="sendQuestion"
-            @paste="handleInputPaste"
             :options="mentionOptions"
             whole
+            @keydown.enter="sendQuestion"
+            @paste="handleInputPaste"
           />
 
           <!-- 发送按钮 -->

@@ -210,7 +210,7 @@
       "body": {
         "input": {
           "question": {
-            "placeholder": "Send a message to LLM"
+            "placeholder": "Send a message, enter @ to select a skill"
           },
           "mention": {
             "calendar_note_query": "Query Calendar Note",

@@ -210,7 +210,7 @@
       "body": {
         "input": {
           "question": {
-            "placeholder": "给大模型发送消息"
+            "placeholder": "发送消息，输入 @ 选择技能"
           },
           "mention": {
             "calendar_note_query": "查询备忘",
