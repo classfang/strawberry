@@ -38,7 +38,7 @@ const activeTabName = defineModel<string>('activeTabName', {
     align-center
   >
     <div class="dialog-body">
-      <el-tabs tab-position="left" v-model="activeTabName">
+      <el-tabs v-model="activeTabName" tab-position="left">
         <!-- 对话 -->
         <el-tab-pane name="chat">
           <template #label>

@@ -20,8 +20,8 @@ const { drawerVisible } = toRefs(data)
       <AppIcon name="more" class="ai-calendar-button-icon" @click="drawerVisible = true" />
     </el-tooltip>
     <AICalendar
-      v-model:drawerVisible="drawerVisible"
       :key="`ai-calendar-${appStateStore.dayKey}`"
+      v-model:drawer-visible="drawerVisible"
     />
   </div>
 </template>

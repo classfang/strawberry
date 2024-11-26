@@ -28,7 +28,8 @@
     margin-bottom: 0;
   }
 
-  ol, ul {
+  ol,
+  ul {
     white-space: normal;
     list-style-position: inside;
     padding-left: $app-line-height-large;
@@ -54,7 +55,9 @@
     }
   }
 
-  table, th, td {
+  table,
+  th,
+  td {
     border: 1px solid var(--el-border-color);
     border-collapse: collapse;
     padding: $app-padding-extra-small;

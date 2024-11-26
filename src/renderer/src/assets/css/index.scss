@@ -1,9 +1,11 @@
 @use 'drawer';
 
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
-  font-family: Inter, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif !important;
+  font-family: Inter, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif !important;
   font-size: var(--el-font-size-base);
   color: var(--el-text-color-primary);
 }

@@ -1,6 +1,6 @@
 // 过渡动画
-$app-transition-base: var(--el-transition-duration) cubic-bezier(.55,0,.1,1);
-$app-transition-fast: var(--el-transition-duration-fast) cubic-bezier(.55,0,.1,1);
+$app-transition-base: var(--el-transition-duration) cubic-bezier(0.55, 0, 0.1, 1);
+$app-transition-fast: var(--el-transition-duration-fast) cubic-bezier(0.55, 0, 0.1, 1);
 
 // 尺寸
 $app-font-size-extra-large: 24px;
