@@ -418,6 +418,10 @@ const activeTabName = defineModel<string>('activeTabName', {
     .el-tab-pane {
       height: 100%;
     }
+
+    .el-tabs__item {
+      padding-left: 0;
+    }
   }
 
   :deep(.el-tabs__content) {
