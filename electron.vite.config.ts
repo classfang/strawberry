@@ -47,8 +47,7 @@ export default defineConfig({
       preprocessorOptions: {
         scss: {
           // 定义全局的scss变量
-          additionalData: `@use '@renderer/assets/css/scss-vars.scss' as *;`,
-          api: 'modern-compiler'
+          additionalData: `@use '@renderer/assets/css/scss-vars.scss' as *;`
         }
       }
     }
