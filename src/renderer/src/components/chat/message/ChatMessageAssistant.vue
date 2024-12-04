@@ -15,6 +15,12 @@ const { appStateStore, chatSessionStore } = useStore()
 const emits = defineEmits(['regenerate', 'clear-context'])
 
 // 组件传参
+defineProps({
+  hasConsole: {
+    type: Boolean,
+    default: true
+  }
+})
 const message = defineModel<ChatMessage>('message', {
   default: () => {}
 })
@@ -92,6 +98,7 @@ const message = defineModel<ChatMessage>('message', {
       </div>
 
       <ChatMessageConsole
+        v-if="hasConsole"
         v-model:message="message"
         class="message-console"
         @regenerate="emits('regenerate')"

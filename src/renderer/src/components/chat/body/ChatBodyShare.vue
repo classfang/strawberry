@@ -109,7 +109,11 @@ const shareText = () => {
     </div>
 
     <!-- 图片分享弹窗 -->
-    <ChatBodyShareView v-model:visible="shareViewVisible" @ok="visible = false" />
+    <ChatBodyShareView
+      v-model:visible="shareViewVisible"
+      v-model:message-check-ids="messageCheckIds"
+      @ok="visible = false"
+    />
   </div>
 </template>
 

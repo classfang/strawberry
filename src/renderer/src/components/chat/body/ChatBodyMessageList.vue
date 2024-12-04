@@ -136,7 +136,7 @@ onMounted(() => {
   <div class="chat-body-message-list">
     <!-- 消息列表 -->
     <el-scrollbar ref="messageListScrollbarRef" height="100%" @scroll="onMessageListScroll">
-      <div id="message-list-container" class="message-list-container">
+      <div class="message-list-container">
         <div
           v-for="m in chatSessionStore.getActiveSession!.messages"
           :key="m.id"
@@ -148,30 +148,19 @@ onMounted(() => {
               v-if="messageCheckIds.includes(m.id!)"
               :checked="true"
               size="large"
-              data-share-hide="true"
               @click="onMessageCheckboxClick(m.id!, false)"
             />
-            <el-checkbox
-              v-else
-              size="large"
-              data-share-hide="true"
-              @click="onMessageCheckboxClick(m.id!, true)"
-            />
+            <el-checkbox v-else size="large" @click="onMessageCheckboxClick(m.id!, true)" />
           </template>
 
           <!-- 对话消息 -->
           <template v-if="m.type === 'chat'">
             <template v-if="m.role === 'user'">
-              <ChatMessageUser
-                :message="m"
-                :data-share-hide="!messageCheckIds.includes(m.id!)"
-                @clear-context="scrollToBottom(false)"
-              />
+              <ChatMessageUser :message="m" @clear-context="scrollToBottom(false)" />
             </template>
             <template v-else-if="m.role === 'assistant'">
               <ChatMessageAssistant
                 :message="m"
-                :data-share-hide="!messageCheckIds.includes(m.id!)"
                 @regenerate="emits('regenerate', m.id)"
                 @clear-context="scrollToBottom(false)"
               />
@@ -182,7 +171,6 @@ onMounted(() => {
           <template v-else-if="m.type === 'error'">
             <ChatMessageError
               :message="m"
-              :data-share-hide="!messageCheckIds.includes(m.id!)"
               @regenerate="emits('regenerate', m.id)"
               @clear-context="scrollToBottom(false)"
             />
@@ -190,7 +178,7 @@ onMounted(() => {
 
           <!-- 分隔消息 -->
           <template v-else-if="m.type === 'divider'">
-            <ChatMessageDivider :message="m" :data-share-hide="!messageCheckIds.includes(m.id!)" />
+            <ChatMessageDivider :message="m" />
           </template>
         </div>
       </div>
@@ -212,6 +200,7 @@ onMounted(() => {
 
   .message-list-container {
     width: 100%;
+    overflow-x: hidden;
     background-color: var(--el-fill-color-extra-light);
     box-sizing: border-box;
     padding: $app-padding-base;

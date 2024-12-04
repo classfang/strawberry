@@ -111,7 +111,7 @@ const clearContext = (messageId: string) => {
         chatSessionStore.getActiveSession?.messages.at(-1)?.id == message.id
     }"
   >
-    <div class="chat-message-console" data-share-hide="true">
+    <div class="chat-message-console">
       <template v-if="message.type === 'chat' && message.role === 'assistant' && message.choices">
         <el-button
           text

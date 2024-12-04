@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { CopyDocument, Download } from '@element-plus/icons-vue'
+import ChatMessageAssistant from '@renderer/components/chat/message/ChatMessageAssistant.vue'
+import ChatMessageDivider from '@renderer/components/chat/message/ChatMessageDivider.vue'
+import ChatMessageError from '@renderer/components/chat/message/ChatMessageError.vue'
+import ChatMessageUser from '@renderer/components/chat/message/ChatMessageUser.vue'
 import { clipboardWriteImage } from '@renderer/service/ipc-service'
 import { Logger } from '@renderer/service/logger-service'
 import { useStore } from '@renderer/store/store'
 import { nowTimestamp } from '@renderer/utils/date-util'
 import { toPng } from 'html-to-image'
-import { watch, reactive, toRefs } from 'vue'
+import { watch, reactive, nextTick } from 'vue'
 
 // 仓库
 const { chatSessionStore } = useStore()
@@ -17,33 +21,23 @@ const emits = defineEmits(['ok'])
 const visible = defineModel<boolean>('visible', {
   default: () => false
 })
+const messageCheckIds = defineModel<string[]>('messageCheckIds', {
+  default: () => []
+})
 
 // 数据绑定
 const data = reactive({
-  messageListImageUrl: '',
   shareImageUrl: ''
 })
-const { messageListImageUrl } = toRefs(data)
 
 // 监听弹窗显示，重新获取图片
 watch(
   () => visible.value,
   () => {
     if (visible.value) {
-      const el = document.getElementById('message-list-container')
-      if (el) {
-        toPng(el, {
-          quality: 1,
-          filter: (domNode: HTMLElement) => domNode.dataset?.shareHide !== 'true'
-        })
-          .then((dataUrl) => {
-            data.messageListImageUrl = dataUrl
-            generateShareImage()
-          })
-          .catch((e: any) => {
-            Logger.error(e.message)
-          })
-      }
+      nextTick(() => {
+        generateShareImage()
+      })
     }
   }
 )
@@ -57,7 +51,6 @@ const generateShareImage = () => {
     })
       .then((dataUrl) => {
         data.shareImageUrl = dataUrl
-        generateShareImage()
       })
       .catch((e: any) => {
         Logger.error(e.message)
@@ -94,7 +87,35 @@ const saveImage = () => {
     <div class="dialog-body">
       <el-scrollbar height="100%">
         <div id="share-view-content" class="share-view-content">
-          <el-image v-if="messageListImageUrl" :src="messageListImageUrl" />
+          <div class="message-list-container">
+            <div
+              v-for="m in chatSessionStore.getActiveSession!.messages.filter((msg) =>
+                messageCheckIds.includes(msg.id!)
+              )"
+              :key="m.id"
+              class="message-container"
+            >
+              <!-- 对话消息 -->
+              <template v-if="m.type === 'chat'">
+                <template v-if="m.role === 'user'">
+                  <ChatMessageUser :message="m" :has-console="false" />
+                </template>
+                <template v-else-if="m.role === 'assistant'">
+                  <ChatMessageAssistant :message="m" :has-console="false" />
+                </template>
+              </template>
+
+              <!-- 错误消息 -->
+              <template v-else-if="m.type === 'error'">
+                <ChatMessageError :message="m" :has-console="false" />
+              </template>
+
+              <!-- 分隔消息 -->
+              <template v-else-if="m.type === 'divider'">
+                <ChatMessageDivider :message="m" />
+              </template>
+            </div>
+          </div>
           <el-divider class="share-view-content-divider" />
           <div class="share-view-content-footer">
             <img class="app-logo" alt="qr-code" src="../../../assets/image/app-logo.png" />
@@ -178,6 +199,24 @@ const saveImage = () => {
       .qr-code {
         height: 100%;
         margin-left: auto;
+      }
+    }
+
+    .message-list-container {
+      width: 100%;
+      overflow-x: hidden;
+      background-color: var(--el-fill-color-extra-light);
+      box-sizing: border-box;
+      padding: $app-padding-base;
+      display: flex;
+      flex-direction: column;
+      gap: $app-padding-base;
+
+      .message-container {
+        width: 100%;
+        display: flex;
+        gap: $app-padding-base;
+        align-items: center;
       }
     }
   }

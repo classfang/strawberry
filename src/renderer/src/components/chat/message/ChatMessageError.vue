@@ -2,6 +2,12 @@
 import ChatMessageConsole from '@renderer/components/chat/message/ChatMessageConsole.vue'
 
 // 组件传参
+defineProps({
+  hasConsole: {
+    type: Boolean,
+    default: true
+  }
+})
 const message = defineModel<ChatMessage>('message', {
   default: () => {}
 })
@@ -15,6 +21,7 @@ const emits = defineEmits(['regenerate', 'clear-context'])
     <div class="message-content-container">
       <div class="message-content select-text">{{ message.content }}</div>
       <ChatMessageConsole
+        v-if="hasConsole"
         v-model:message="message"
         class="message-console"
         @regenerate="emits('regenerate')"

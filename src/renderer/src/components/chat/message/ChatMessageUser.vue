@@ -14,6 +14,12 @@ import { openInBrowser } from '@renderer/utils/window-util'
 const { appStateStore } = useStore()
 
 // 组件传参
+defineProps({
+  hasConsole: {
+    type: Boolean,
+    default: true
+  }
+})
 const message = defineModel<ChatMessage>('message', {
   default: () => {}
 })
@@ -101,6 +107,7 @@ const emits = defineEmits(['clear-context'])
     </div>
 
     <ChatMessageConsole
+      v-if="hasConsole"
       v-model:message="message"
       class="message-console"
       @clear-context="emits('clear-context')"

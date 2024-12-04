@@ -809,16 +809,16 @@
     zod "^3.22.3"
     zod-to-json-schema "^3.22.5"
 
-"@langchain/core@^0.3.19":
-  version "0.3.19"
-  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.19.tgz#8e2038dbb7cb70264d892cf9c3b506125ee68d77"
-  integrity sha512-pJVOAHShefu1SRO8uhzUs0Pexah/Ib66WETLMScIC2w9vXlpwQy3DzXJPJ5X7ixry9N666jYO5cHtM2Z1DnQIQ==
+"@langchain/core@^0.3.20":
+  version "0.3.20"
+  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.20.tgz#2d3bcf60decc8fd55945f810be26f7e5db3d7602"
+  integrity sha512-29yg7dccRkJ1MdGFW4FSp6+yM8LoisBHWjXsoi+hTRTQBael3yhjnevrNtVjhF8FMAt/rDQan6bHsGCQkwcScA==
   dependencies:
     ansi-styles "^5.0.0"
     camelcase "6"
     decamelize "1.2.0"
     js-tiktoken "^1.0.12"
-    langsmith "^0.2.0"
+    langsmith "^0.2.8"
     mustache "^4.2.0"
     p-queue "^6.6.2"
     p-retry "4"
@@ -4165,6 +4165,18 @@ langsmith@^0.2.0:
     semver "^7.6.3"
     uuid "^10.0.0"
 
+langsmith@^0.2.8:
+  version "0.2.8"
+  resolved "https://registry.npmmirror.com/langsmith/-/langsmith-0.2.8.tgz#926a857df206a67fd912f9a201a08cdffa8870e2"
+  integrity sha512-wKVNZoYtd8EqQWUEsfDZlZ77rH7vVqgNtONXRwynUp7ZFMFUIPhSlqE9pXqrmYPE8ZTBFj7diag2lFgUuaOEKw==
+  dependencies:
+    "@types/uuid" "^10.0.0"
+    commander "^10.0.1"
+    p-queue "^6.6.2"
+    p-retry "4"
+    semver "^7.6.3"
+    uuid "^10.0.0"
+
 lazy-val@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmmirror.com/lazy-val/-/lazy-val-1.0.5.tgz#6cf3b9f5bc31cee7ee3e369c0832b7583dcd923d"
@@ -4841,10 +4853,10 @@ openai@^4.57.3:
     node-fetch "^2.6.7"
     qs "^6.10.3"
 
-openai@^4.73.1:
-  version "4.73.1"
-  resolved "https://registry.npmmirror.com/openai/-/openai-4.73.1.tgz#532bd000d5f1a558e4fff1119da6749992ac41e4"
-  integrity sha512-nWImDJBcUsqrhy7yJScXB4+iqjzbUEgzfA3un/6UnHFdwWhjX24oztj69Ped/njABfOdLcO/F7CeWTI5dt8Xmg==
+openai@^4.75.0:
+  version "4.75.0"
+  resolved "https://registry.npmmirror.com/openai/-/openai-4.75.0.tgz#8bd44885aba5f8f35fe9dea17a4d6859bca5d199"
+  integrity sha512-8cWaK3td0qLspaflKWD6AvpQnl0gynWFbHg7sMAgiu//F20I4GJlCCpllDrECO6WFSuY8HXJj8gji3urw2BGGg==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
@@ -5400,10 +5412,10 @@ sanitize-filename@^1.6.3:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
-sass@^1.81.0:
-  version "1.81.0"
-  resolved "https://registry.npmmirror.com/sass/-/sass-1.81.0.tgz#a9010c0599867909dfdbad057e4a6fbdd5eec941"
-  integrity sha512-Q4fOxRfhmv3sqCLoGfvrC9pRV8btc0UtqL9mN6Yrv6Qi9ScL55CVH1vlPP863ISLEEMNLLuu9P+enCeGHlnzhA==
+sass@^1.82.0:
+  version "1.82.0"
+  resolved "https://registry.npmmirror.com/sass/-/sass-1.82.0.tgz#30da277af3d0fa6042e9ceabd0d984ed6d07df70"
+  integrity sha512-j4GMCTa8elGyN9A7x7bEglx0VgSpNUG4W4wNedQ33wSMdnkqQCT8HTwOaVSV4e6yQovcu/3Oc4coJP/l0xhL2Q==
   dependencies:
     chokidar "^4.0.0"
     immutable "^5.0.2"
