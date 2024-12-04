@@ -14,9 +14,7 @@
 
 ## 1. 为什么选择 Strawberry
 
-只需一个 API Key，即可体验按需付费的 ChatGPT 最新能力。
-
-[OpenAI 更新日志](/demo/zhCN/doc/openai_changelog/index.md)
+只需一个 API Key，即可体验按需付费的 ChatGPT 最新能力（[OpenAI 更新日志](/demo/zhCN/doc/openai_changelog/index.md)）。
 
 国内**OpenAI API代理**参考仓库：[零代码、零成本代理OpenAI等限制访问的接口](https://github.com/classfang/openai-api-vercel-proxy)
 
