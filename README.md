@@ -59,13 +59,7 @@
 
 ### 3.1. App 在 macOS 下提示已损坏无法打开解决办法
 
-打开终端，输入以下命令，并执行：
-
-```shell
-sudo xattr -d com.apple.quarantine /Applications/Strawberry.app
-```
-
-注意：/Applications/Strawberry.app 换成你的App路径。
+[《macOS系统提示已损坏无法打开解决办法》](/demo/zhCN/doc/macos_open_error/index.md)
 
 ## 4. 开发
 
