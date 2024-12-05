@@ -65,7 +65,7 @@ interface ChatOption {
   model: string
   temperature: number
   topP: number
-  maxTokens: number
+  maxCompletionTokens: number
   presencePenalty: number
   frequencyPenalty: number
   contextSize: number

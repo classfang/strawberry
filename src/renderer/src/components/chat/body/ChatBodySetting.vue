@@ -98,13 +98,13 @@ const activeTabName = defineModel<string>('activeTabName', {
             </el-form-item>
 
             <!-- Max Tokens -->
-            <el-form-item :label="$t('app.setting.item.chat.maxTokens')">
+            <el-form-item :label="$t('app.setting.item.chat.maxCompletionTokens')">
               <el-tooltip
-                :content="$t('app.setting.item.chat.explain.maxTokens')"
+                :content="$t('app.setting.item.chat.explain.maxCompletionTokens')"
                 placement="right"
               >
                 <el-input-number
-                  v-model="chatSessionStore.getActiveSession!.chatOption.maxTokens"
+                  v-model="chatSessionStore.getActiveSession!.chatOption.maxCompletionTokens"
                   :min="1024"
                   :max="1024000"
                   :step="1"

@@ -51,7 +51,7 @@
           "model": "模型",
           "temperature": "随机性",
           "topP": "核采样",
-          "maxTokens": "单次回复限制",
+          "maxCompletionTokens": "单次回复限制",
           "presencePenalty": "话题新鲜度",
           "frequencyPenalty": "频率惩罚度",
           "contextSize": "上下文大小",
@@ -59,7 +59,7 @@
           "explain": {
             "temperature": "值越大，回复越随机",
             "topP": "与随机性类似，但不要和随机性一起更改",
-            "maxTokens": "单次交互所用的最大 Token 数",
+            "maxCompletionTokens": "单次交互所用的最大 Token 数",
             "presencePenalty": "值越大，越有可能扩展到新话题",
             "frequencyPenalty": "值越大，越有可能降低重复字词",
             "contextSize": "每次请求携带历史消息条数",
