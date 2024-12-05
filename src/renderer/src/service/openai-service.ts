@@ -32,10 +32,13 @@ export const openaiChat = async (param: OpenAIChatParam) => {
     Logger.info('openai chat request params: ', param.params)
 
     // 增加系统消息
-    param.params.messages.unshift({
-      role: 'system',
-      content: `The current time is ${dayjs().format('YYYY-MM-DD HH:mm:ss')}`
-    })
+    // TODO o1在测试阶段暂不支持system角色 https://platform.openai.com/docs/guides/reasoning
+    if (!param.params.model.startsWith('o1')) {
+      param.params.messages.unshift({
+        role: 'system',
+        content: `The current time is ${dayjs().format('YYYY-MM-DD HH:mm:ss')}`
+      })
+    }
 
     // 流式对话
     if (param.params.stream) {
