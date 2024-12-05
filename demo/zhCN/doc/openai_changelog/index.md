@@ -1,5 +1,11 @@
 # OpenAI 更新日志
 
+## 2024年12月
+
+### `12月4日` `Update`
+
+推出 Usage API，使客户能够通过 OpenAI API 以编程方式查询活动和支出。
+
 ## 2024年11月
 
 ### `11月20日` `Update` `v1/chat/completions`
