@@ -5,7 +5,6 @@ import ChatMessageDivider from '@renderer/components/chat/message/ChatMessageDiv
 import ChatMessageError from '@renderer/components/chat/message/ChatMessageError.vue'
 import ChatMessageUser from '@renderer/components/chat/message/ChatMessageUser.vue'
 import { clipboardWriteImage } from '@renderer/service/ipc-service'
-import { Logger } from '@renderer/service/logger-service'
 import { useStore } from '@renderer/store/store'
 import { nowTimestamp } from '@renderer/utils/date-util'
 import { toPng } from 'html-to-image'
