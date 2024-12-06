@@ -9,7 +9,7 @@ import { Logger } from '@renderer/service/logger-service'
 import { useStore } from '@renderer/store/store'
 import { nowTimestamp } from '@renderer/utils/date-util'
 import { toPng } from 'html-to-image'
-import { watch, reactive, nextTick } from 'vue'
+import { reactive } from 'vue'
 
 // 仓库
 const { chatSessionStore } = useStore()
@@ -30,18 +30,6 @@ const data = reactive({
   shareImageUrl: ''
 })
 
-// 监听弹窗显示，重新获取图片
-watch(
-  () => visible.value,
-  () => {
-    if (visible.value) {
-      nextTick(() => {
-        generateShareImage()
-      })
-    }
-  }
-)
-
 // 生成分享图片
 const generateShareImage = () => {
   const el = document.getElementById('share-view-content')
@@ -60,6 +48,7 @@ const generateShareImage = () => {
 
 // 复制图片
 const copyImage = () => {
+  generateShareImage()
   clipboardWriteImage(data.shareImageUrl)
   visible.value = false
   emits('ok')
@@ -67,6 +56,7 @@ const copyImage = () => {
 
 // 保存图片
 const saveImage = () => {
+  generateShareImage()
   const link = document.createElement('a')
   link.download = `share-image-${nowTimestamp()}`
   link.href = data.shareImageUrl
