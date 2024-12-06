@@ -31,32 +31,26 @@ const data = reactive({
 })
 
 // 生成分享图片
-const generateShareImage = () => {
+const generateShareImage = async () => {
   const el = document.getElementById('share-view-content')
   if (el) {
-    toPng(el, {
+    data.shareImageUrl = await toPng(el, {
       quality: 1
     })
-      .then((dataUrl) => {
-        data.shareImageUrl = dataUrl
-      })
-      .catch((e: any) => {
-        Logger.error(e.message)
-      })
   }
 }
 
 // 复制图片
-const copyImage = () => {
-  generateShareImage()
-  clipboardWriteImage(data.shareImageUrl)
+const copyImage = async () => {
+  await generateShareImage()
+  await clipboardWriteImage(data.shareImageUrl)
   visible.value = false
   emits('ok')
 }
 
 // 保存图片
-const saveImage = () => {
-  generateShareImage()
+const saveImage = async () => {
+  await generateShareImage()
   const link = document.createElement('a')
   link.download = `share-image-${nowTimestamp()}`
   link.href = data.shareImageUrl
