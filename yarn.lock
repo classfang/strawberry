@@ -1179,10 +1179,10 @@
   resolved "https://registry.npmmirror.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
-"@trivago/prettier-plugin-sort-imports@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.npmmirror.com/@trivago/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-5.0.1.tgz#0e394068d71b691ac78af6ff31fd2dc36668652b"
-  integrity sha512-J9D/xdWO3Bm661ql9eSwYAagccGALwjFOVy1Mh1KzF3BAUr7Qd+GBcvtl0rhgN4U4OFWl9nbwXAaoOgPJw84FA==
+"@trivago/prettier-plugin-sort-imports@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.npmmirror.com/@trivago/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-5.1.0.tgz#b494553e9fd8b28173f321b20fbf865d76b5fb17"
+  integrity sha512-IlzY6Qxd+T5lLS3JLgaXUMIedFJY2/RB4QlFV3K47l08Z2xIeEIRCMMlvuI/n/4Kjw6ofvq+g3YoBYKidnpJOg==
   dependencies:
     "@babel/generator" "^7.26.2"
     "@babel/parser" "^7.26.2"
@@ -5803,10 +5803,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-svelte@^5.7.1:
-  version "5.7.1"
-  resolved "https://registry.npmmirror.com/svelte/-/svelte-5.7.1.tgz#af412a57e6ef4be398a82a9b834f2031fb59f68d"
-  integrity sha512-kUtiiNcN7ssi5X8OQW8IILoI53RUudjn8TD1910i8cg5c5IRZ4IuaDO1vFl+kZcvv1geYBxlFpi/mj09m/CCBg==
+svelte@^5.9.0:
+  version "5.9.0"
+  resolved "https://registry.npmmirror.com/svelte/-/svelte-5.9.0.tgz#4fbe4a6aeabc6548be4d8457b95739d8bb7197ca"
+  integrity sha512-ZcC3BtjIDa4yfhAyAr94MxDQLD97zbpXmaUldFv2F5AkdZwYgQYB3BZVNRU5zEVaeeHoAns8ADiRMnre3QmpxQ==
   dependencies:
     "@ampproject/remapping" "^2.3.0"
     "@jridgewell/sourcemap-codec" "^1.5.0"
