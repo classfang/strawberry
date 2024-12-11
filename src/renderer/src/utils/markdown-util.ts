@@ -1,12 +1,13 @@
 import '@renderer/assets/css/markdown-code.scss'
 import i18n from '@renderer/i18n'
 import { textToBase64, base64ToText } from '@renderer/utils/base64-util'
+import markdownItKatex from '@vscode/markdown-it-katex'
 import ClipboardJS from 'clipboard'
 import { ElMessage } from 'element-plus'
 import hljs from 'highlight.js'
 import 'highlight.js/scss/github-dark.scss'
+import 'katex/dist/katex.css'
 import MarkdownIt from 'markdown-it'
-import markdownItMathjax3 from 'markdown-it-mathjax3'
 
 // 多语言
 const { t } = i18n.global
@@ -68,7 +69,7 @@ const markdown = new MarkdownIt({
 })
 
 // 支持数学公式，svg渲染，无需引入额外样式
-markdown.use(markdownItMathjax3)
+markdown.use(markdownItKatex)
 
 // 渲染函数
 export const renderMarkdown = (content: string, isLoading: boolean) => {
