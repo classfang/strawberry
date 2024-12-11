@@ -6,6 +6,7 @@ import ClipboardJS from 'clipboard'
 import { ElMessage } from 'element-plus'
 import hljs from 'highlight.js'
 import 'highlight.js/scss/github-dark.scss'
+import splitAtDelimiters from 'katex/contrib/auto-render/splitAtDelimiters'
 import 'katex/dist/katex.css'
 import MarkdownIt from 'markdown-it'
 
@@ -71,20 +72,49 @@ const markdown = new MarkdownIt({
 // 支持数学公式，svg渲染，无需引入额外样式
 markdown.use(markdownItKatex)
 
+// 扩展katex渲染，支持\(和\[
+// TODO https://github.com/microsoft/vscode-markdown-it-katex/issues/22
+const normalizeDelimiters = (markdownText) => {
+  const data = splitAtDelimiters(markdownText, [
+    { left: '\\[', right: '\\]', display: true },
+    { left: '\\(', right: '\\)', display: false }
+  ])
+  let result = ''
+  data.forEach((segment) => {
+    if (segment.type === 'text') {
+      result += segment.data
+    } else if (segment.type === 'math') {
+      result += segment.display ? `$$${segment.data}$$` : `$${segment.data}$`
+    }
+  })
+  return result
+}
+
 // 渲染函数
 export const renderMarkdown = (content: string, isLoading: boolean) => {
+  // 扩展katex渲染
+  let tempContent = normalizeDelimiters(content)
+
+  // 已输出完毕
   if (!isLoading) {
-    return markdown.render(content)
+    // 直接渲染返回
+    return markdown.render(tempContent)
   }
 
   // 加载中，显示闪烁光标
-  let htmlCode = markdown.render(content + endFlag)
+  tempContent += endFlag
+
+  // 渲染得到html
+  let htmlCode = markdown.render(tempContent)
+
   // 找到结束标识
   const endFlagIndex = htmlCode.lastIndexOf(endFlag)
+
   // 插入光标元素
   htmlCode =
     htmlCode.substring(0, endFlagIndex) +
     `<span class="chat-message-loading">丨</span>` +
     htmlCode.substring(endFlagIndex + endFlag.length)
+
   return htmlCode
 }
