@@ -74,13 +74,13 @@ markdown.use(markdownItKatex)
 
 // 扩展katex渲染，支持\(和\[
 // TODO https://github.com/microsoft/vscode-markdown-it-katex/issues/22
-const normalizeDelimiters = (markdownText) => {
+const katexNormalizeDelimiters = (markdownText: string) => {
   const data = splitAtDelimiters(markdownText, [
     { left: '\\[', right: '\\]', display: true },
     { left: '\\(', right: '\\)', display: false }
   ])
   let result = ''
-  data.forEach((segment) => {
+  data.forEach((segment: any) => {
     if (segment.type === 'text') {
       result += segment.data
     } else if (segment.type === 'math') {
@@ -93,7 +93,7 @@ const normalizeDelimiters = (markdownText) => {
 // 渲染函数
 export const renderMarkdown = (content: string, isLoading: boolean) => {
   // 扩展katex渲染
-  let tempContent = normalizeDelimiters(content)
+  let tempContent = katexNormalizeDelimiters(content)
 
   // 已输出完毕
   if (!isLoading) {
