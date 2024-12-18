@@ -1229,7 +1229,7 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/estree@1.0.6", "@types/estree@^1.0.0", "@types/estree@^1.0.1", "@types/estree@^1.0.5", "@types/estree@^1.0.6":
+"@types/estree@1.0.6", "@types/estree@^1.0.0", "@types/estree@^1.0.5", "@types/estree@^1.0.6":
   version "1.0.6"
   resolved "https://registry.npmmirror.com/@types/estree/-/estree-1.0.6.tgz#628effeeae2064a1b4e79f78e81d87b7e5fc7b50"
   integrity sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==
@@ -1445,6 +1445,11 @@
   version "8.16.0"
   resolved "https://registry.npmmirror.com/@typescript-eslint/types/-/types-8.16.0.tgz#49c92ae1b57942458ab83d9ec7ccab3005e64737"
   integrity sha512-NzrHj6thBAOSE4d9bsuRNMvk+BvaQvmY4dDglgkgGC0EW/tB3Kelnp3tAKH87GEwzoxgeQn9fNGRyFJM/xd+GQ==
+
+"@typescript-eslint/types@^8.2.0":
+  version "8.18.1"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-8.18.1.tgz#d7f4f94d0bba9ebd088de840266fcd45408a8fff"
+  integrity sha512-7uoAUsCj66qdNQNpH2G8MyTFlgerum8ubf21s3TSM3XmKXuIn+H2Sifh/ES2nPOPiYSRJWAk0fDkW0APBWcpfw==
 
 "@typescript-eslint/typescript-estree@8.16.0":
   version "8.16.0"
@@ -3105,13 +3110,13 @@ esquery@^1.4.0, esquery@^1.5.0:
   dependencies:
     estraverse "^5.1.0"
 
-esrap@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.npmmirror.com/esrap/-/esrap-1.2.3.tgz#abe6c0cffeee013aaa8396ad8eaa7c0553768323"
-  integrity sha512-ZlQmCCK+n7SGoqo7DnfKaP1sJZa49P01/dXzmjCASSo04p72w8EksT2NMK8CEX8DhKsfJXANioIw8VyHNsBfvQ==
+esrap@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/esrap/-/esrap-1.3.1.tgz#537861022bfda890a5658f2cd53af9a0d65e8ec9"
+  integrity sha512-KpAH3+QsDmtOP1KOW04CbD1PgzWsIHjB8tOCk3PCb8xzNGn8XkjI8zl80i09fmXdzQyaS8tcsKCCDzHF7AcowA==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.15"
-    "@types/estree" "^1.0.1"
+    "@typescript-eslint/types" "^8.2.0"
 
 esrecurse@^4.3.0:
   version "4.3.0"
@@ -5622,10 +5627,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-svelte@^5.14.1:
-  version "5.14.1"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.14.1.tgz#8c9def9b4fa9f7b190ff2d1118759dad08a3ba2b"
-  integrity sha512-DET9IJw6LUStRnu5rTXnlBs1fsJt417C9QXE8J+gIEWc4IsqxcJsa3OYUsf7ZJmDQbaBudcp4pxI7Za0NR1QYg==
+svelte@^5.14.4:
+  version "5.14.4"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.14.4.tgz#d1f8add8cf91cb5c6b8d7bfe5c3a660676e01aa7"
+  integrity sha512-2iR/UHHA2Dsldo4JdXDcdqT+spueuh+uNYw1FoTKBbpnFEECVISeqSo0uubPS4AfBE0xI6u7DGHxcdq3DTDmoQ==
   dependencies:
     "@ampproject/remapping" "^2.3.0"
     "@jridgewell/sourcemap-codec" "^1.5.0"
@@ -5635,7 +5640,7 @@ svelte@^5.14.1:
     aria-query "^5.3.1"
     axobject-query "^4.1.0"
     esm-env "^1.2.1"
-    esrap "^1.2.3"
+    esrap "^1.3.1"
     is-reference "^3.0.3"
     locate-character "^3.0.0"
     magic-string "^0.30.11"
