@@ -21,6 +21,10 @@ export const OpenAIModels = [
     label: 'o1',
     options: [
       {
+        value: 'o1',
+        label: 'o1'
+      },
+      {
         value: 'o1-preview',
         label: 'o1-preview'
       },
