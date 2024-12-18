@@ -64,7 +64,7 @@
     "eslint-plugin-vue": "^9.32.0",
     "highlight.js": "^11.11.0",
     "html-to-image": "^1.11.11",
-    "katex": "^0.16.15",
+    "katex": "^0.16.17",
     "markdown-it": "^14.1.0",
     "openai": "^4.76.3",
     "pinia": "^2.3.0",
