@@ -842,10 +842,10 @@
     zod "^3.22.3"
     zod-to-json-schema "^3.22.5"
 
-"@langchain/core@^0.3.24":
-  version "0.3.24"
-  resolved "https://registry.yarnpkg.com/@langchain/core/-/core-0.3.24.tgz#c6e00bfce6e9a78efda16cc549d3aba87b78ade7"
-  integrity sha512-xd7+VSJCwFNwt57poYjl18SbAb51mLWvq7OvQhkUQXv20LdnrO8Y5e2NhVKpNcYE306fFfAu+ty9ncPyKCpMZA==
+"@langchain/core@^0.3.25":
+  version "0.3.25"
+  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.25.tgz#b647fbeb825af79e6de2f3896c26116ef744008c"
+  integrity sha512-kB4BhGK2XQu/c9RtHD+ocixZ7fziakvXzzVJhkd3KdR5RBcZNigzDVLf83cYAQbqeeEpLdbKb/6N+KWDc7zX/g==
   dependencies:
     "@cfworker/json-schema" "^4.0.2"
     ansi-styles "^5.0.0"
@@ -4034,7 +4034,14 @@ jszip@^3.7.1:
     readable-stream "~2.3.6"
     setimmediate "^1.0.5"
 
-katex@^0.16.17, katex@^0.16.4:
+katex@^0.16.18:
+  version "0.16.18"
+  resolved "https://registry.npmmirror.com/katex/-/katex-0.16.18.tgz#20781284288bc52805c519e48ac756163ad4b1f3"
+  integrity sha512-LRuk0rPdXrecAFwQucYjMiIs0JFefk6N1q/04mlw14aVIVgxq1FO0MA9RiIIGVaKOB5GIP5GH4aBBNraZERmaQ==
+  dependencies:
+    commander "^8.3.0"
+
+katex@^0.16.4:
   version "0.16.17"
   resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.17.tgz#72c588a0beca0cac10c30f447c2fb14647f773ed"
   integrity sha512-OyzSrXBllz+Jdc9Auiw0kt21gbZ4hkz8Q5srVAb2U9INcYIfGKbxe+bvNvEz1bQ/NrDeRRho5eLCyk/L03maAw==
