@@ -35,7 +35,7 @@
     "@types/markdown-it": "^14.1.2",
     "ajv": "^8.17.1",
     "electron-store": "^10.0.0",
-    "langchain": "^0.3.7",
+    "langchain": "^0.3.8",
     "mammoth": "^1.8.0",
     "officeparser": "^5.1.1",
     "pdf-parse": "^1.1.1",
