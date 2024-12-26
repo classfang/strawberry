@@ -51,7 +51,7 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "@vscode/markdown-it-katex": "^1.1.1",
     "@vue/eslint-config-prettier": "^10.1.0",
-    "@vue/eslint-config-typescript": "^14.1.4",
+    "@vue/eslint-config-typescript": "^14.2.0",
     "@vueuse/core": "^12.2.0",
     "axios": "^1.7.9",
     "clipboard": "^2.0.11",
