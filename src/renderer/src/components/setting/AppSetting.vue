@@ -743,40 +743,6 @@ onMounted(() => {
                   <el-switch v-model="appSettingStore.internetSearchOption.enabled" />
                 </el-tooltip>
               </el-form-item>
-
-              <!-- Guide URL -->
-              <el-form-item :label="$t('app.setting.item.internetSearch.google.guide.label')">
-                <el-button
-                  link
-                  type="primary"
-                  @click="openInBrowser($t('app.setting.item.internetSearch.google.guide.url'))"
-                >
-                  {{ $t('app.setting.item.internetSearch.google.guide.url') }}
-                </el-button>
-              </el-form-item>
-
-              <!-- Base URL -->
-              <el-form-item :label="$t('app.setting.item.internetSearch.google.baseUrl')">
-                <el-input v-model="appSettingStore.internetSearchOption.google.baseUrl" />
-              </el-form-item>
-
-              <!-- key -->
-              <el-form-item :label="$t('app.setting.item.internetSearch.google.key')">
-                <el-input
-                  v-model="appSettingStore.internetSearchOption.google.key"
-                  show-password
-                  type="password"
-                />
-              </el-form-item>
-
-              <!-- cx -->
-              <el-form-item :label="$t('app.setting.item.internetSearch.google.cx')">
-                <el-input
-                  v-model="appSettingStore.internetSearchOption.google.cx"
-                  show-password
-                  type="password"
-                />
-              </el-form-item>
             </el-form>
           </el-tab-pane>
 

@@ -6,8 +6,7 @@ import {
 import dayjs from 'dayjs'
 import { defineStore } from 'pinia'
 
-export const useAppStateStore = defineStore({
-  id: 'app-state',
+export const useAppStateStore = defineStore('app-state', {
   state: () => ({
     mainWindowFocusFlag: true,
     chatLoadingFlag: false,

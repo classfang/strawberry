@@ -147,6 +147,11 @@ export const readWebBodyByUrl = (url: string) => {
   return window.electron.ipcRenderer.invoke('read-web-body-by-url', url)
 }
 
+export const readWebBodyHtmlByUrl = (url: string) => {
+  Logger.info(logPrefix, 'readWebBodyHtmlByUrl', url)
+  return window.electron.ipcRenderer.invoke('read-web-body-html-by-url', url)
+}
+
 export const checkDesktopScreenshots = (): Promise<void> => {
   Logger.info(logPrefix, 'checkDesktopScreenshots')
   return window.electron.ipcRenderer.invoke('check-desktop-screenshots')

@@ -2,8 +2,7 @@ import { nowTimestamp } from '@renderer/utils/date-util'
 import { generateUUID } from '@renderer/utils/id-util'
 import { defineStore } from 'pinia'
 
-export const useChatSessionStore = defineStore({
-  id: 'chat-session',
+export const useChatSessionStore = defineStore('chat-session', {
   state: () => ({
     sessions: [] as ChatSession[],
     activeSessionId: ''

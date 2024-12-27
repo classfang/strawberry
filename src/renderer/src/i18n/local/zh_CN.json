@@ -97,15 +97,6 @@
         },
         "internetSearch": {
           "enabled": "开启互联网搜索",
-          "google": {
-            "guide": {
-              "label": "使用指南",
-              "url": "https://developers.google.cn/custom-search/v1/overview"
-            },
-            "baseUrl": "谷歌搜索服务地址",
-            "key": "谷歌搜索 API 密钥",
-            "cx": "谷歌搜索引擎 ID"
-          },
           "explain": {
             "enabled": "大模型会自动判断是否调用，会增加 Token 消耗"
           }

@@ -2,8 +2,7 @@ import { nowTimestamp } from '@renderer/utils/date-util'
 import { generateUUID } from '@renderer/utils/id-util'
 import { defineStore } from 'pinia'
 
-export const useAICalendarStore = defineStore({
-  id: 'ai-calendar',
+export const useAICalendarStore = defineStore('ai-calendar', {
   state: () => ({
     dayNotes: {} as Record<string, CalendarNote>
   }),

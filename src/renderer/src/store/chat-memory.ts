@@ -2,8 +2,7 @@ import { nowTimestamp } from '@renderer/utils/date-util'
 import { generateUUID } from '@renderer/utils/id-util'
 import { defineStore } from 'pinia'
 
-export const useChatMemoryStore = defineStore({
-  id: 'chat-memory',
+export const useChatMemoryStore = defineStore('chat-memory', {
   state: () => ({
     memoryList: [] as ChatMemory[]
   }),

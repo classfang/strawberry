@@ -97,15 +97,6 @@
         },
         "internetSearch": {
           "enabled": "Enable Internet Search",
-          "google": {
-            "guide": {
-              "label": "Guide",
-              "url": "https://developers.google.com/custom-search/v1/overview"
-            },
-            "baseUrl": "Google Search Base Url",
-            "key": "Google Search API Key",
-            "cx": "Google Search Engine ID"
-          },
           "explain": {
             "enabled": "LLM determines whether to invoke it. Token consumption increases."
           }

@@ -89,11 +89,6 @@ interface TextToImageOption {
 
 interface InternetSearchOption {
   enabled: boolean
-  google: {
-    baseUrl: string
-    key: string
-    cx: string
-  }
 }
 
 interface MemoryOption {

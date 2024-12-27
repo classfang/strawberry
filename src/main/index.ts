@@ -313,11 +313,36 @@ ipcMain.handle('show-item-in-folder', (_event, filePath: string) => {
 })
 
 // 读取网页内容
+ipcMain.handle('read-web-body-html-by-url', async (_event, url: string) => {
+  return new Promise((resolve, reject) => {
+    const win = new BrowserWindow({
+      width: 960,
+      height: 620,
+      show: false
+    })
+
+    // 加载页面
+    win.loadURL(url)
+
+    // 监听页面加载完成事件
+    win.webContents.on('did-finish-load', () => {
+      // 使用 `webContents.executeJavaScript` 等待异步内容渲染完成
+      win.webContents
+        .executeJavaScript(`new Promise((resolve) => { resolve(document.body.innerHTML); });`)
+        .then((content) => {
+          resolve(content)
+        })
+        .catch(() => {
+          reject()
+        })
+    })
+  })
+})
 ipcMain.handle('read-web-body-by-url', async (_event, url: string) => {
   return new Promise((resolve, reject) => {
     const win = new BrowserWindow({
-      width: 300,
-      height: 300,
+      width: 960,
+      height: 620,
       show: false
     })
 

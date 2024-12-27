@@ -1,7 +1,10 @@
-import { saveFileByBase64 } from '@renderer/service/ipc-service'
+import {
+  readWebBodyByUrl,
+  readWebBodyHtmlByUrl,
+  saveFileByBase64
+} from '@renderer/service/ipc-service'
 import { Logger } from '@renderer/service/logger-service'
 import { generateUUID } from '@renderer/utils/id-util'
-import axios from 'axios'
 import dayjs from 'dayjs'
 import OpenAI from 'openai'
 
@@ -180,24 +183,42 @@ export const toolsUse = async (
     Logger.info('toolsUse text_to_image save result: ', images)
     return JSON.stringify(images)
   } else if (functionName === ToolEnum.INTERNET_SEARCH) {
-    const internetSearchOption = appSettingStore.internetSearchOption
-    const resp = await axios.get(internetSearchOption.google.baseUrl, {
-      params: {
-        key: internetSearchOption.google.key,
-        cx: internetSearchOption.google.cx,
-        q: JSON.parse(functionArguments).query
-      },
-      signal: abortCtrSignal
-    })
-    Logger.info('toolsUse internet_search resp: ', resp)
-    return JSON.stringify(
-      resp.data.items.map((item: any) => ({
-        title: item.title,
-        snippet: item.snippet,
-        link: item.link,
-        displayLink: item.displayLink
-      }))
-    )
+    // 搜索结果列表
+    const searchResult: InternetSearchResultItem[] = []
+
+    // 白嫖必应搜索
+    const bingSearchUrl = 'https://www.bing.com/search?q=' + JSON.parse(functionArguments).query
+    const bingWebBody = await readWebBodyHtmlByUrl(bingSearchUrl)
+    if (abortCtrSignal.aborted) {
+      return JSON.stringify(searchResult)
+    }
+
+    // 构建元素对象
+    const bodyEl = document.createElement('body')
+    bodyEl.innerHTML = bingWebBody
+
+    // 获取所有搜索结果的 a 标签
+    const aElList = bodyEl.querySelectorAll('#b_results h2 a')
+    if (aElList) {
+      for (let i = 0; i < 3; i++) {
+        const aEl = aElList[i] as HTMLLinkElement
+        if (aEl) {
+          searchResult.push({
+            title: aEl.innerText,
+            // 加载网页内容
+            snippet: await readWebBodyByUrl(aEl.href),
+            link: aEl.href,
+            displayLink: new URL(aEl.href).host
+          })
+        }
+        if (abortCtrSignal.aborted) {
+          return JSON.stringify(searchResult)
+        }
+      }
+    }
+
+    return JSON.stringify(searchResult)
   }
+
   return ''
 }

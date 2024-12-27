@@ -148,27 +148,6 @@ const sendQuestion = async (event?: KeyboardEvent, regenerateFlag?: boolean) => 
     errorAnswer(t('app.chat.body.input.pleaseConfigure') + t('app.setting.item.openai.apiKey'))
     return
   }
-  if (toolNameList.includes(ToolEnum.INTERNET_SEARCH)) {
-    if (!appSettingStore.internetSearchOption.google.baseUrl) {
-      errorAnswer(
-        t('app.chat.body.input.pleaseConfigure') +
-          t('app.setting.item.internetSearch.google.baseUrl')
-      )
-      return
-    }
-    if (!appSettingStore.internetSearchOption.google.key) {
-      errorAnswer(
-        t('app.chat.body.input.pleaseConfigure') + t('app.setting.item.internetSearch.google.key')
-      )
-      return
-    }
-    if (!appSettingStore.internetSearchOption.google.cx) {
-      errorAnswer(
-        t('app.chat.body.input.pleaseConfigure') + t('app.setting.item.internetSearch.google.cx')
-      )
-      return
-    }
-  }
 
   // 工具调用参数记录
   let toolCallId = ''
