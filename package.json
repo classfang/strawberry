@@ -31,7 +31,7 @@
     "@electron-toolkit/preload": "^3.0.0",
     "@electron-toolkit/utils": "^3.0.0",
     "@langchain/community": "^0.3.20",
-    "@langchain/core": "^0.3.26",
+    "@langchain/core": "^0.3.27",
     "@types/markdown-it": "^14.1.2",
     "ajv": "^8.17.1",
     "electron-store": "^10.0.0",
