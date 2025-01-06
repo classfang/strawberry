@@ -113,9 +113,8 @@ export const renderMarkdown = (content: string, isPrinting: boolean, isSearching
   // 插入光标元素
   htmlCode =
     htmlCode.substring(0, endFlagIndex) +
-    (isSearching
-      ? `<span class="chat-message-searching">${t('app.state.searching')}</span>`
-      : '<span class="chat-message-loading">丨</span>') +
+    (isSearching ? `<span class="chat-message-searching">${t('app.state.searching')}</span>` : '') +
+    '<span class="chat-message-loading">丨</span>' +
     htmlCode.substring(endFlagIndex + endFlag.length)
 
   return htmlCode

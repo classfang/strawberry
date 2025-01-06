@@ -10,7 +10,7 @@
     "state": {
       "waitAnswer": "Wait for answer",
       "answering": "Answering",
-      "searching": "Searching"
+      "searching": "Web searching"
     },
     "notification": {
       "newReply": "New Reply"

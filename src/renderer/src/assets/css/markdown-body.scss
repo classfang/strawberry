@@ -69,6 +69,10 @@
     animation: alternate-hide-show 900ms ease-in-out infinite;
   }
 
+  .chat-message-searching {
+    color: var(--el-color-primary);
+  }
+
   @keyframes alternate-hide-show {
     0%,
     50%,
