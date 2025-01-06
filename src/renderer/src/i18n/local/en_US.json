@@ -97,6 +97,7 @@
         },
         "internetSearch": {
           "enabled": "Enable Internet Search",
+          "count": "Number of pages searched",
           "explain": {
             "enabled": "LLM determines whether to invoke it. Token consumption increases."
           }

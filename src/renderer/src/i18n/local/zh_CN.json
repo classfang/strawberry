@@ -97,6 +97,7 @@
         },
         "internetSearch": {
           "enabled": "开启互联网搜索",
+          "count": "搜索网页数量",
           "explain": {
             "enabled": "大模型会自动判断是否调用，会增加 Token 消耗"
           }

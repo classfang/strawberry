@@ -187,7 +187,10 @@ export const toolsUse = async (
     const searchResult: InternetSearchResultItem[] = []
 
     // 白嫖必应搜索
-    const bingSearchUrl = 'https://www.bing.com/search?q=' + JSON.parse(functionArguments).query
+    const bingSearchUrl = 'https://www.bing.com/search?q={query}'.replace(
+      '{query}',
+      encodeURIComponent(JSON.parse(functionArguments).query)
+    )
     const bingWebBody = await readWebBodyHtmlByUrl(bingSearchUrl)
     if (abortCtrSignal.aborted) {
       return JSON.stringify(searchResult)
@@ -199,8 +202,9 @@ export const toolsUse = async (
 
     // 获取所有搜索结果的 a 标签
     const aElList = bodyEl.querySelectorAll('#b_results h2 a')
+    console.log(Math.min(chatSession.internetSearchOption.count, aElList.length))
     if (aElList) {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < Math.min(chatSession.internetSearchOption.count, aElList.length); i++) {
         const aEl = aElList[i] as HTMLLinkElement
         if (aEl) {
           searchResult.push({

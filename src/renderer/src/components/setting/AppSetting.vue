@@ -743,6 +743,11 @@ onMounted(() => {
                   <el-switch v-model="appSettingStore.internetSearchOption.enabled" />
                 </el-tooltip>
               </el-form-item>
+
+              <!-- Search Result Count -->
+              <el-form-item :label="$t('app.setting.item.internetSearch.count')">
+                <el-input-number v-model="appSettingStore.internetSearchOption.count" />
+              </el-form-item>
             </el-form>
           </el-tab-pane>
 

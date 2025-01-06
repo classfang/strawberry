@@ -55,7 +55,8 @@ export const useAppSettingStore = defineStore('app-setting', {
       enabled: false
     },
     internetSearchOption: {
-      enabled: false
+      enabled: false,
+      count: 3
     },
     calendarOption: {
       queryEnabled: true,

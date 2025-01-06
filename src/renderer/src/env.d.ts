@@ -89,6 +89,7 @@ interface TextToImageOption {
 
 interface InternetSearchOption {
   enabled: boolean
+  count: number
 }
 
 interface MemoryOption {
