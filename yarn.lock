@@ -847,10 +847,10 @@
     zod "^3.22.3"
     zod-to-json-schema "^3.22.5"
 
-"@langchain/core@^0.3.26":
-  version "0.3.26"
-  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.26.tgz#0ebe7cbe7be316076ddef3feff4ce256a953b751"
-  integrity sha512-6RUQHEp8wv+JwtYIIEBYBzbLlcAQZFc7EDOgAM0ukExjh9HiXoJzoWpgMRRCrr/koIbtwXPJUqBprZK1I1CXHQ==
+"@langchain/core@^0.3.27":
+  version "0.3.27"
+  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.27.tgz#b8e75bd4f122b18a423f3905df0e9872205a1a44"
+  integrity sha512-jtJKbJWB1NPU1YvtrExOB2rumvUFgkJwlWGxyjSIV9A6zcLVmUbcZGV8fCSuXgl5bbzOIQLJ1xcLYQmbW9TkTg==
   dependencies:
     "@cfworker/json-schema" "^4.0.2"
     ansi-styles "^5.0.0"
@@ -1205,10 +1205,10 @@
   resolved "https://registry.npmmirror.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
-"@trivago/prettier-plugin-sort-imports@^5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@trivago/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-5.2.0.tgz#a9dfdc3aa8bda1fc868a46575fa3c2d8f067bf42"
-  integrity sha512-yEIJ7xMKYQwyNRjxSdi4Gs37iszikAjxfky+3hu9bn24u8eHLJNDMAoOTyowp8p6EpSl8IQMdkfBx+WnJTttsw==
+"@trivago/prettier-plugin-sort-imports@^5.2.1":
+  version "5.2.1"
+  resolved "https://registry.npmmirror.com/@trivago/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-5.2.1.tgz#34adffe6d2ea48d960d957185b13f62a2e6c901a"
+  integrity sha512-NDZndt0fmVThIx/8cExuJHLZagUVzfGCoVrwH9x6aZvwfBdkrDFTYujecek6X2WpG4uUFsVaPg5+aNQPSyjcmw==
   dependencies:
     "@babel/generator" "^7.26.2"
     "@babel/parser" "^7.26.2"
@@ -2790,10 +2790,10 @@ electron@^33.2.1:
     "@types/node" "^20.9.0"
     extract-zip "^2.0.1"
 
-element-plus@^2.9.1:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.9.1.tgz#00cac40abaafe8806fc77b2552050e14a7693680"
-  integrity sha512-9Agqf/jt4Ugk7EZ6C5LME71sgkvauPCsnvJN12Xid2XVobjufxMGpRE4L7pS4luJMOmFAH3J0NgYEGZT5r+NDg==
+element-plus@^2.9.2:
+  version "2.9.2"
+  resolved "https://registry.npmmirror.com/element-plus/-/element-plus-2.9.2.tgz#a6cf457868451249a50efc43369a90a5fdbf7319"
+  integrity sha512-HS+Cc5mmy70DixJuoN3cMxPPoNWXkjHzUw2PcGmysk6NHQzzUtwi2Vc+dlmbmRxj3eNqgC1xpPQV5Nf9uDtQRg==
   dependencies:
     "@ctrl/tinycolor" "^3.4.1"
     "@element-plus/icons-vue" "^2.3.1"
@@ -4079,10 +4079,28 @@ kuler@^2.0.0:
   resolved "https://registry.npmmirror.com/kuler/-/kuler-2.0.0.tgz#e2c570a3800388fb44407e851531c1d670b061b3"
   integrity sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==
 
-"langchain@>=0.2.3 <0.3.0 || >=0.3.4 <0.4.0", langchain@^0.3.8:
+"langchain@>=0.2.3 <0.3.0 || >=0.3.4 <0.4.0":
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/langchain/-/langchain-0.3.8.tgz#285bb291a686daf063717c12e06fda76335b9270"
   integrity sha512-EiAHFgBdThuXFmIx9j81wjdPItpRsw0Ck4r5dyhB74gyhehRGna/UK2CTqeKVnIUM/f4g4JbxUgAU4voXljDMw==
+  dependencies:
+    "@langchain/openai" ">=0.1.0 <0.4.0"
+    "@langchain/textsplitters" ">=0.0.0 <0.2.0"
+    js-tiktoken "^1.0.12"
+    js-yaml "^4.1.0"
+    jsonpointer "^5.0.1"
+    langsmith "^0.2.8"
+    openapi-types "^12.1.3"
+    p-retry "4"
+    uuid "^10.0.0"
+    yaml "^2.2.1"
+    zod "^3.22.4"
+    zod-to-json-schema "^3.22.3"
+
+langchain@^0.3.9:
+  version "0.3.9"
+  resolved "https://registry.npmmirror.com/langchain/-/langchain-0.3.9.tgz#92d0b0c5dd924cfe4406ec755b5483d6bd1a9bd1"
+  integrity sha512-uteRutI03Bt9f53nZmx8mWfJXkf6VlFVRuOprRJ0mWdCpkTP359sxrH4v6w4TokLiziPC/aMay662kmOz0dHlA==
   dependencies:
     "@langchain/openai" ">=0.1.0 <0.4.0"
     "@langchain/textsplitters" ">=0.0.0 <0.2.0"
@@ -4717,10 +4735,23 @@ onetime@^6.0.0:
   dependencies:
     mimic-fn "^4.0.0"
 
-openai@^4.57.3, openai@^4.77.0:
+openai@^4.57.3:
   version "4.77.0"
   resolved "https://registry.yarnpkg.com/openai/-/openai-4.77.0.tgz#228f2d43ffa79ae9d8b5d4155e965da82e5ac330"
   integrity sha512-WWacavtns/7pCUkOWvQIjyOfcdr9X+9n9Vvb0zFeKVDAqwCMDHB+iSr24SVaBAhplvSG6JrRXFpcNM9gWhOGIw==
+  dependencies:
+    "@types/node" "^18.11.18"
+    "@types/node-fetch" "^2.6.4"
+    abort-controller "^3.0.0"
+    agentkeepalive "^4.2.1"
+    form-data-encoder "1.7.2"
+    formdata-node "^4.3.2"
+    node-fetch "^2.6.7"
+
+openai@^4.77.3:
+  version "4.77.3"
+  resolved "https://registry.npmmirror.com/openai/-/openai-4.77.3.tgz#10f6906f2f737a98b656b745a6b710e595ba2e4d"
+  integrity sha512-wLDy4+KWHz31HRFMW2+9KQuVuT2QWhs0z94w1Gm1h2Ut9vIHr9/rHZggbykZEfyiaJRVgw8ZS9K6AylDWzvPYw==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
@@ -5262,10 +5293,10 @@ sanitize-filename@^1.6.3:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
-sass@^1.83.0:
-  version "1.83.0"
-  resolved "https://registry.npmmirror.com/sass/-/sass-1.83.0.tgz#e36842c0b88a94ed336fd16249b878a0541d536f"
-  integrity sha512-qsSxlayzoOjdvXMVLkzF84DJFc2HZEL/rFyGIKbbilYtAvlCxyuzUeff9LawTn4btVnLKg75Z8MMr1lxU1lfGw==
+sass@^1.83.1:
+  version "1.83.1"
+  resolved "https://registry.npmmirror.com/sass/-/sass-1.83.1.tgz#dee1ab94b47a6f9993d3195d36f556bcbda64846"
+  integrity sha512-EVJbDaEs4Rr3F0glJzFSOvtg2/oy2V/YrGFPqPY24UqcLDWcI9ZY5sN+qyO3c/QCZwzgfirvhXvINiJCE/OLcA==
   dependencies:
     chokidar "^4.0.0"
     immutable "^5.0.2"
@@ -5555,10 +5586,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-svelte@^5.16.0:
-  version "5.16.0"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.16.0.tgz#43ef960ee20ccf3fe8a52882a5253acaeb52ec2b"
-  integrity sha512-Ygqsiac6UogVED2ruKclU+pOeMThxWtp9LG+li7BXeDKC2paVIsRTMkNmcON4Zejerd1s5sZHWx6ZtU85xklVg==
+svelte@^5.16.2:
+  version "5.16.2"
+  resolved "https://registry.npmmirror.com/svelte/-/svelte-5.16.2.tgz#f8ddec23b91dafb3297bee256fad08eeaa0e38c7"
+  integrity sha512-S4mKWbjv53ik1NtGuO95TC7kBA8GYBIeT9fM6y2wHdLNqdCmPXJSWLVuO7vlJZ7TUksp+6qnvqCCtWnVXeTCyw==
   dependencies:
     "@ampproject/remapping" "^2.3.0"
     "@jridgewell/sourcemap-codec" "^1.5.0"
@@ -5918,10 +5949,10 @@ verror@^1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite@^6.0.6:
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.6.tgz#a851674fcff55b0c1962f72082354b8802e48505"
-  integrity sha512-NSjmUuckPmDU18bHz7QZ+bTYhRR0iA72cs2QAxCqDpafJ0S6qetco0LB3WW2OxlMHS0JmAv+yZ/R3uPmMyGTjQ==
+vite@^6.0.7:
+  version "6.0.7"
+  resolved "https://registry.npmmirror.com/vite/-/vite-6.0.7.tgz#f0f8c120733b04af52b4a1e3e7cb54eb851a799b"
+  integrity sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==
   dependencies:
     esbuild "^0.24.2"
     postcss "^8.4.49"
