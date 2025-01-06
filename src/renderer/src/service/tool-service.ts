@@ -202,22 +202,19 @@ export const toolsUse = async (
 
     // 获取所有搜索结果的 a 标签
     const aElList = bodyEl.querySelectorAll('#b_results h2 a')
-    console.log(Math.min(chatSession.internetSearchOption.count, aElList.length))
-    if (aElList) {
-      for (let i = 0; i < Math.min(chatSession.internetSearchOption.count, aElList.length); i++) {
-        const aEl = aElList[i] as HTMLLinkElement
-        if (aEl) {
-          searchResult.push({
-            title: aEl.innerText,
-            // 加载网页内容
-            snippet: await readWebBodyByUrl(aEl.href),
-            link: aEl.href,
-            displayLink: new URL(aEl.href).host
-          })
-        }
-        if (abortCtrSignal.aborted) {
-          return JSON.stringify(searchResult)
-        }
+    for (let i = 0; i < Math.min(chatSession.internetSearchOption.count, aElList.length); i++) {
+      const aEl = aElList[i] as HTMLLinkElement
+      if (aEl) {
+        searchResult.push({
+          title: aEl.innerText,
+          // 加载网页内容
+          snippet: await readWebBodyByUrl(aEl.href),
+          link: aEl.href,
+          displayLink: new URL(aEl.href).host
+        })
+      }
+      if (abortCtrSignal.aborted) {
+        return JSON.stringify(searchResult)
       }
     }
 

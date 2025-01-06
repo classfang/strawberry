@@ -91,12 +91,12 @@ const katexNormalizeDelimiters = (markdownText: string) => {
 }
 
 // 渲染函数
-export const renderMarkdown = (content: string, isLoading: boolean) => {
+export const renderMarkdown = (content: string, isPrinting: boolean, isSearching: boolean) => {
   // 扩展katex渲染
   let tempContent = katexNormalizeDelimiters(content)
 
   // 已输出完毕
-  if (!isLoading) {
+  if (!isPrinting) {
     // 直接渲染返回
     return markdown.render(tempContent)
   }
@@ -113,7 +113,9 @@ export const renderMarkdown = (content: string, isLoading: boolean) => {
   // 插入光标元素
   htmlCode =
     htmlCode.substring(0, endFlagIndex) +
-    `<span class="chat-message-loading">丨</span>` +
+    (isSearching
+      ? `<span class="chat-message-searching">${t('app.state.searching')}</span>`
+      : '<span class="chat-message-loading">丨</span>') +
     htmlCode.substring(endFlagIndex + endFlag.length)
 
   return htmlCode

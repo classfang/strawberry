@@ -9,7 +9,8 @@
     },
     "state": {
       "waitAnswer": "等待回答",
-      "answering": "正在回答"
+      "answering": "正在回答",
+      "searching": "正在搜索"
     },
     "notification": {
       "newReply": "新回复"

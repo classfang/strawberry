@@ -10,6 +10,7 @@ export const useAppStateStore = defineStore('app-state', {
   state: () => ({
     mainWindowFocusFlag: true,
     chatLoadingFlag: false,
+    chatSearchingFlag: false,
     chatAnswerFlag: false,
     currentToolName: null as null | string,
     uploadFlag: false,

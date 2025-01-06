@@ -207,6 +207,9 @@ const sendQuestion = async (event?: KeyboardEvent, regenerateFlag?: boolean) => 
           // 修改当前运行工具状态
           appStateStore.currentToolName = functionName
 
+          // 是否是网络搜索
+          appStateStore.chatSearchingFlag = functionName === ToolEnum.INTERNET_SEARCH
+
           // 执行工具
           let toolResult = await toolsUse(
             functionName,
@@ -268,6 +271,8 @@ const sendQuestion = async (event?: KeyboardEvent, regenerateFlag?: boolean) => 
           } else if (ToolEnum.INTERNET_SEARCH === functionName) {
             // 记录搜索结果
             streamAnswer('', undefined, JSON.parse(toolResult))
+            // 网络搜索结束
+            appStateStore.chatSearchingFlag = false
             // 继续调用对话能力
             await functionCall({
               sendMessages,
@@ -551,6 +556,7 @@ const finishAnswer = (noSessionNameFlag?: boolean, regenerateFlag?: boolean) => 
   // 修改状态
   appStateStore.chatAnswerFlag = false
   appStateStore.chatLoadingFlag = false
+  appStateStore.chatSearchingFlag = false
 }
 
 // 停止回答

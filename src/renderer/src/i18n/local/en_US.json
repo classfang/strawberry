@@ -9,7 +9,8 @@
     },
     "state": {
       "waitAnswer": "Wait for answer",
-      "answering": "Answering"
+      "answering": "Answering",
+      "searching": "Searching"
     },
     "notification": {
       "newReply": "New Reply"

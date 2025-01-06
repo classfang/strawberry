@@ -58,7 +58,8 @@ const message = defineModel<ChatMessage>('message', {
             renderMarkdown(
               message.content,
               chatSessionStore.getActiveSession?.messages.at(-1)?.id === message.id &&
-                appStateStore.chatLoadingFlag
+                appStateStore.chatLoadingFlag,
+              appStateStore.chatSearchingFlag
             )
           "
         ></div>
