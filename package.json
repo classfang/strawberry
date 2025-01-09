@@ -66,7 +66,7 @@
     "html-to-image": "^1.11.11",
     "katex": "^0.16.19",
     "markdown-it": "^14.1.0",
-    "openai": "^4.77.3",
+    "openai": "^4.77.4",
     "pinia": "^2.3.0",
     "pinia-plugin-persistedstate": "^4.2.0",
     "prettier": "^3.4.2",
