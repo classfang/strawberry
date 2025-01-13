@@ -847,10 +847,10 @@
     zod "^3.22.3"
     zod-to-json-schema "^3.22.5"
 
-"@langchain/core@^0.3.27":
-  version "0.3.27"
-  resolved "https://registry.npmmirror.com/@langchain/core/-/core-0.3.27.tgz#b8e75bd4f122b18a423f3905df0e9872205a1a44"
-  integrity sha512-jtJKbJWB1NPU1YvtrExOB2rumvUFgkJwlWGxyjSIV9A6zcLVmUbcZGV8fCSuXgl5bbzOIQLJ1xcLYQmbW9TkTg==
+"@langchain/core@^0.3.29":
+  version "0.3.29"
+  resolved "https://registry.yarnpkg.com/@langchain/core/-/core-0.3.29.tgz#02d08486b5d6cb7ea9857fb46c2ec4c0bedf8995"
+  integrity sha512-LGjJq/UV43GnEzBpO2NWelIlzsAWoci+FEqofYqDE+F6O3EvTrSyma27NXs8eurM8MqWxjeL0t4RCmCSlJs2RQ==
   dependencies:
     "@cfworker/json-schema" "^4.0.2"
     ansi-styles "^5.0.0"
