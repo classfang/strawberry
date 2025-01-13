@@ -59,7 +59,7 @@
     "electron": "^33.3.1",
     "electron-builder": "^25.1.8",
     "electron-vite": "^2.3.0",
-    "element-plus": "^2.9.2",
+    "element-plus": "^2.9.3",
     "eslint": "^9.17.0",
     "eslint-plugin-vue": "^9.32.0",
     "highlight.js": "^11.11.1",
