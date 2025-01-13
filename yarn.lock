@@ -831,10 +831,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@langchain/community@^0.3.22":
-  version "0.3.22"
-  resolved "https://registry.yarnpkg.com/@langchain/community/-/community-0.3.22.tgz#8c222e779b2bf1541cd8c037ec80d4fd0338a571"
-  integrity sha512-RGfmG3sfJhVpdFHyPwdQhrzGXdGoCoBh6zWB79/4WaMVU0q0Uo1Y/NeeslSxp778sWEeJkRcXZC73dR8lwOFjw==
+"@langchain/community@^0.3.24":
+  version "0.3.24"
+  resolved "https://registry.yarnpkg.com/@langchain/community/-/community-0.3.24.tgz#84064012dd91bf745f6f1115187b49361c4d5c94"
+  integrity sha512-lHio63Bi5mxO6aMzLfXq5ouo6gKpSs7JWJ3Fi2Sl1fdH0AdCEqQZyLG0Fjinx/T815aPBb8eUIdjUlQIrPE2eA==
   dependencies:
     "@langchain/openai" ">=0.2.0 <0.4.0"
     binary-extensions "^2.2.0"
